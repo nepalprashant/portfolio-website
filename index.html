@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prashant Nepal - Associate Data Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #121212;
+            --text-color: #E0E0E0;
+            --accent-color: #00ACC1;
+            --secondary-accent: #FFA726;
+            --nav-bg: #1E1E1E;
+            --glow-color: rgba(0, 172, 193, 0.5);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: var(--nav-bg);
+            padding: 1rem;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+        }
+        .logo {
+            width: 80px;
+            height: 80px;
+            transition: transform 0.5s ease;
+        }
+        .logo:hover {
+            transform: rotate(360deg) scale(1.1);
+        }
+        section {
+            padding: 5rem 2rem;
+            min-height: 100vh;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.5s forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .hero {
+            position: relative;
+            text-align: center;
+            padding-top: 8rem;
+            background: linear-gradient(to bottom, #1E1E1E, #121212);
+            overflow: hidden;
+        }
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://via.placeholder.com/1920x1080') no-repeat center center;
+            background-size: cover;
+            z-index: -1;
+            transition: transform 0.1s ease;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .about {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        .about img {
+            width: 200px;
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--glow-color);
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .skill-card {
+            background: var(--nav-bg);
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .skill-card:hover {
+            transform: scale(1.1) translateY(-10px);
+            box-shadow: 0 10px 20px var(--glow-color);
+        }
+        .skill-card i {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+            transition: color 0.3s ease;
+        }
+        .skill-card:hover i {
+            color: var(--secondary-accent);
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .project-card {
+            background: var(--nav-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .project-card:hover {
+            transform: scale(1.05) translateZ(10px);
+        }
+        .project-card a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .contact-card {
+            background: var(--nav-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px var(--glow-color);
+        }
+        .contact-card img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+        .download-btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--secondary-accent);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 1rem;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .download-btn:hover {
+            background: #FF8A00;
+            transform: scale(1.15);
+        }
+        .data-animation {
+            margin-top: 2rem;
+            text-align: center;
+            position: relative;
+            perspective: 1500px;
+        }
+        .data-animation svg {
+            width: 100%;
+            max-width: 900px;
+            height: 350px;
+            transform-style: preserve-3d;
+        }
+        .data-path {
+            stroke-dasharray: 20, 10;
+            stroke-dashoffset: 0;
+            animation: dash 2.5s linear infinite;
+            transition: stroke-width 0.4s ease, opacity 0.4s ease;
+        }
+        .data-node {
+            transition: transform 0.5s ease, r 0.3s ease, filter 0.3s ease;
+            transform-origin: center;
+            cursor: pointer;
+        }
+        .data-node:hover {
+            transform: scale(1.3) rotateX(15deg) rotateY(15deg);
+            r: 28;
+            filter: brightness(1.5) drop-shadow(0 0 10px var(--accent-color));
+        }
+        .data-node.active {
+            filter: brightness(1.2);
+        }
+        .data-path.active {
+            stroke-width: 6;
+            opacity: 1;
+        }
+        .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.9);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        @keyframes dash {
+            to {
+                stroke-dashoffset: -30;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .skill-card:hover,
+            .project-card,
+            .contact-card,
+            .data-node:hover,
+            .logo:hover {
+                transform: none;
+            }
+            .data-path {
+                animation: none;
+            }
+        }
+        @media (max-width: 768px) {
+            .about {
+                flex-direction: column;
+                text-align: center;
+            }
+            .contact-cards {
+                grid-template-columns: 1fr;
+            }
+            .data-animation svg {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div id="logo"></div>
+        <ul>
+            <li><a href="#about" class="active">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="parallax-bg"></div>
+        <div class="container">
+            <h1>Prashant Nepal</h1>
+            <p>Associate Data Engineer</p>
+            <p>Crafting data solutions with precision and innovation</p>
+            <a href="#projects" class="download-btn">Explore My Work</a>
+        </div>
+    </section>
+
+    <section id="about" class="container">
+        <h2>About Me</h2>
+        <div class="about">
+            <img src="https://via.placeholder.com/200" alt="Your profile photo">
+            <div>
+                <p>I'm Prashant Nepal, an Associate Data Engineer with a passion for building robust data ecosystems. My expertise lies in designing scalable pipelines and delivering actionable insights from complex datasets.</p>
+                <p>When I'm not wrangling data, I enjoy [your hobbies], fueling my creativity and curiosity.</p>
+            </div>
+        </div>
+        <div class="data-animation">
+            <svg viewBox="0 0 900 350" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                        <feGaussianBlur stdDeviation="3" result="blur"/>
+                        <feMerge>
+                            <feMergeNode in="blur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                    <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#00ACC1"/>
+                        <stop offset="100%" style="stop-color:#FFA726"/>
+                    </linearGradient>
+                </defs>
+                <!-- Data Source -->
+                <g class="data-node" data-tooltip="Data Source: Ingests raw data from various origins">
+                    <circle cx="100" cy="175" r="25" fill="url(#flowGradient)" filter="url(#glow)"/>
+                    <text x="100" y="180" text-anchor="middle" fill="#fff" font-size="14">Source</text>
+                </g>
+                <!-- Paths to ETL -->
+                <path d="M125,175 C200,100 250,250 300,175" stroke="#00ACC1" stroke-width="4" fill="none" class="data-path" opacity="0.6"/>
+                <path d="M125,175 C200,200 250,150 300,175" stroke="#00ACC1" stroke-width="4" fill="none" class="data-path" opacity="0.6"/>
+                <!-- ETL Node -->
+                <g class="data-node" data-tooltip="ETL: Extracts, transforms, and loads data efficiently">
+                    <circle cx="300" cy="175" r="25" fill="url(#flowGradient)" filter="url(#glow)"/>
+                    <text x="300" y="180" text-anchor="middle" fill="#fff" font-size="14">ETL</text>
+                </g>
+                <!-- Paths to Analysis -->
+                <path d="M325,175 C400,120 450,230 500,175" stroke="#00ACC1" stroke-width="4" fill="none" class="data-path" opacity="0.6"/>
+                <path d="M325,175 C400,200 450,150 500,175" stroke="#00ACC1" stroke-width="4" fill="none" class="data-path" opacity="0.6"/>
+                <!-- Analysis Node -->
+                <g class="data-node" data-tooltip="Analysis: Processes data for patterns and trends">
+                    <circle cx="500" cy="175" r="25" fill="url(#flowGradient)" filter="url(#glow)"/>
+                    <text x="500" y="180" text-anchor="middle" fill="#fff" font-size="14">Analysis</text>
+                </g>
+                <!-- Paths to Insights -->
+                <path d="M525,175 C600,130 650,220 700,175" stroke="#00ACC1" stroke-width="4" fill="none" class="data-path" opacity="0.6"/>
+                <path d="M525,175 C600,200 650,150 700,175" stroke="#00ACC1" stroke-width="4" fill="none" class="data-path" opacity="0.6"/>
+                <!-- Insights Node -->
+                <g class="data-node" data-tooltip="Insights: Delivers actionable outcomes">
+                    <circle cx="700" cy="175" r="25" fill="url(#flowGradient)" filter="url(#glow)"/>
+                    <text x="700" y="180" text-anchor="middle" fill="#fff" font-size="14">Insights</text>
+                </g>
+                <!-- Flow Particles -->
+                <circle cx="100" cy="175" r="5" fill="#fff">
+                    <animateMotion dur="3s" repeatCount="indefinite" path="M125,175 C200,100 250,250 300,175"/>
+                </circle>
+                <circle cx="300" cy="175" r="5" fill="#fff">
+                    <animateMotion dur="2.5s" repeatCount="indefinite" path="M325,175 C400,120 450,230 500,175"/>
+                </circle>
+                <circle cx="500" cy="175" r="5" fill="#fff">
+                    <animateMotion dur="2s" repeatCount="indefinite" path="M525,175 C600,130 650,220 700,175"/>
+                </circle>
+            </svg>
+            <p>Interactive 3D Data Pipeline Flow</p>
+        </div>
+    </section>
+
+    <section id="skills" class="container">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card"><i class="fab fa-python"></i><br>Python</div>
+            <div class="skill-card"><i class="fas fa-database"></i><br>SQL</div>
+            <div class="skill-card"><i class="fas fa-server"></i><br>Apache Spark</div>
+            <div class="skill-card"><i class="fab fa-aws"></i><br>AWS</div>
+        </div>
+    </section>
+
+    <section id="projects" class="container">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Data Pipeline Automation</h3>
+                <p>Developed an automated pipeline with Python and Airflow for efficient data processing.</p>
+                <a href="https://github.com/yourusername/project1" target="_blank">GitHub</a>
+            </div>
+            <div class="project-card">
+                <h3>Real-Time Analytics Dashboard</h3>
+                <p>Built a real-time dashboard using AWS and PostgreSQL for data visualization.</p>
+                <a href="https://github.com/yourusername/project2" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <h2>Contact</h2>
+        <div class="contact-cards">
+            <div class="contact-card">
+                <img src="https://via.placeholder.com/60" alt="LinkedIn">
+                <h3>LinkedIn</h3>
+                <a href="https://linkedin.com/in/yourusername" target="_blank">Connect with me</a>
+            </div>
+            <div class="contact-card">
+                <img src="https://via.placeholder.com/60" alt="GitHub">
+                <h3>GitHub</h3>
+                <a href="https://github.com/yourusername" target="_blank">View my projects</a>
+            </div>
+            <div class="contact-card">
+                <img src="https://via.placeholder.com/60" alt="Email">
+                <h3>Email</h3>
+                <a href="mailto:your.email@example.com">Send me an email</a>
+            </div>
+        </div>
+        <a href="resume.pdf" download class="download-btn">Download Resume</a>
+    </section>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Enhanced Personal Logo SVG
+        const logoSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        logoSvg.setAttribute("width", "80");
+        logoSvg.setAttribute("height", "80");
+        logoSvg.setAttribute("viewBox", "0 0 80 80");
+
+        const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+        const gradient = document.createElementNS("http://www.w3.org/2000/svg", "linearGradient");
+        gradient.setAttribute("id", "logoGradient");
+        gradient.setAttribute("x1", "0%");
+        gradient.setAttribute("y1", "0%");
+        gradient.setAttribute("x2", "100%");
+        gradient.setAttribute("y2", "100%");
+        const stop1 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+        stop1.setAttribute("offset", "0%");
+        stop1.setAttribute("stop-color", "#00ACC1");
+        const stop2 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+        stop2.setAttribute("offset", "100%");
+        stop2.setAttribute("stop-color", "#FFA726");
+        gradient.appendChild(stop1);
+        gradient.appendChild(stop2);
+
+        const glowFilter = document.createElementNS("http://www.w3.org/2000/svg", "filter");
+        glowFilter.setAttribute("id", "glowEffect");
+        const gaussianBlur = document.createElementNS("http://www.w3.org/2000/svg", "feGaussianBlur");
+        gaussianBlur.setAttribute("stdDeviation", "2");
+        gaussianBlur.setAttribute("result", "blur");
+        const merge = document.createElementNS("http://www.w3.org/2000/svg", "feMerge");
+        const mergeNode1 = document.createElementNS("http://www.w3.org/2000/svg", "feMergeNode");
+        mergeNode1.setAttribute("in", "blur");
+        const mergeNode2 = document.createElementNS("http://www.w3.org/2000/svg", "feMergeNode");
+        mergeNode2.setAttribute("in", "SourceGraphic");
+        merge.appendChild(mergeNode1);
+        merge.appendChild(mergeNode2);
+        glowFilter.appendChild(gaussianBlur);
+        glowFilter.appendChild(merge);
+        defs.appendChild(gradient);
+        defs.appendChild(glowFilter);
+        logoSvg.appendChild(defs);
+
+        // Outer Circuit Ring
+        const circuitRing = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        circuitRing.setAttribute("cx", "40");
+        circuitRing.setAttribute("cy", "40");
+        circuitRing.setAttribute("r", "35");
+        circuitRing.setAttribute("fill", "none");
+        circuitRing.setAttribute("stroke", "url(#logoGradient)");
+        circuitRing.setAttribute("stroke-width", "3");
+        circuitRing.setAttribute("stroke-dasharray", "10,5");
+        logoSvg.appendChild(circuitRing);
+
+        // Inner Data Core
+        const dataCore = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        dataCore.setAttribute("cx", "40");
+        dataCore.setAttribute("cy", "40");
+        dataCore.setAttribute("r", "20");
+        dataCore.setAttribute("fill", "url(#logoGradient)");
+        dataCore.setAttribute("filter", "url(#glowEffect)");
+        logoSvg.appendChild(dataCore);
+
+        // Flow Lines
+        const flowLine1 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        flowLine1.setAttribute("d", "M30,30 Q40,20 50,30");
+        flowLine1.setAttribute("fill", "none");
+        flowLine1.setAttribute("stroke", "#fff");
+        flowLine1.setAttribute("stroke-width", "1.5");
+        logoSvg.appendChild(flowLine1);
+
+        const flowLine2 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        flowLine2.setAttribute("d", "M30,50 Q40,60 50,50");
+        flowLine2.setAttribute("fill", "none");
+        flowLine2.setAttribute("stroke", "#fff");
+        flowLine2.setAttribute("stroke-width", "1.5");
+        logoSvg.appendChild(flowLine2);
+
+        // Initials "PN" with Animation
+        const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        text.setAttribute("x", "40");
+        text.setAttribute("y", "48");
+        text.setAttribute("text-anchor", "middle");
+        text.setAttribute("fill", "#fff");
+        text.setAttribute("font-size", "24");
+        text.setAttribute("font-weight", "bold");
+        text.textContent = "PN";
+        const animate = document.createElementNS("http://www.w3.org/2000/svg", "animate");
+        animate.setAttribute("attributeName", "opacity");
+        animate.setAttribute("values", "1;0.5;1");
+        animate.setAttribute("dur", "2s");
+        animate.setAttribute("repeatCount", "indefinite");
+        text.appendChild(animate);
+        logoSvg.appendChild(text);
+
+        document.getElementById('logo').appendChild(logoSvg);
+
+        // Data Pipeline Interactivity
+        const nodes = document.querySelectorAll('.data-node');
+        const paths = document.querySelectorAll('.data-path');
+        const tooltip = document.createElement('div');
+        tooltip.className = 'tooltip';
+        document.body.appendChild(tooltip);
+
+        nodes.forEach(node => {
+            node.addEventListener('mouseenter', () => {
+                const tooltipText = node.getAttribute('data-tooltip');
+                const nodeX = parseInt(node.querySelector('circle').getAttribute('cx'));
+
+                paths.forEach(path => {
+                    const pathD = path.getAttribute('d');
+                    const startX = parseInt(pathD.match(/M(\d+)/)[1]);
+                    const endX = parseInt(pathD.match(/(\d+),\d+$/)[1]);
+                    if (Math.abs(startX - nodeX) < 50 || Math.abs(endX - nodeX) < 50) {
+                        path.classList.add('active');
+                    }
+                });
+                node.classList.add('active');
+            });
+
+            node.addEventListener('mousemove', (e) => {
+                tooltip.style.left = `${e.pageX + 15}px`;
+                tooltip.style.top = `${e.pageY + 15}px`;
+                tooltip.textContent = node.getAttribute('data-tooltip');
+                tooltip.style.opacity = '1';
+            });
+
+            node.addEventListener('mouseleave', () => {
+                paths.forEach(path => path.classList.remove('active'));
+                node.classList.remove('active');
+                tooltip.style.opacity = '0';
+            });
+        });
+
+        // Parallax Effect
+        window.addEventListener('scroll', () => {
+            const parallax = document.querySelector('.parallax-bg');
+            let scrollPosition = window.pageYOffset;
+            parallax.style.transform = `translateY(${scrollPosition * 0.4}px) scale(1.2)`;
+        });
+
+        // Fade-in Section Headings
+        const headings = document.querySelectorAll('h2');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeIn 1s forwards';
+                }
+            });
+        }, { threshold: 0.5 });
+        headings.forEach(heading => observer.observe(heading));
+
+        // Dynamic Background Particles
+        const canvas = document.createElement('canvas');
+        canvas.style.position = 'fixed';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+        canvas.style.zIndex = '-2';
+        document.body.appendChild(canvas);
+
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+        for (let i = 0; i < 50; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 2 + 1,
+                speed: Math.random() * 0.5 + 0.1
+            });
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(0, 172, 193, 0.5)';
+                ctx.fill();
+                p.y -= p.speed;
+                if (p.y < 0) p.y = canvas.height;
+            });
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
