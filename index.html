@@ -19,11 +19,11 @@ body{background:var(--bg);color:var(--t);font-family:'Outfit',sans-serif,system-
 .grid-bg{position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(0,237,194,.016) 1px,transparent 1px),linear-gradient(90deg,rgba(0,237,194,.016) 1px,transparent 1px);background-size:60px 60px}
 .vig{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 35%,rgba(4,7,17,.88) 100%)}
 canvas#space{position:fixed;inset:0;z-index:0}
-
-/* ── ALL BUTTONS RESET FIRST ── */
+/* scroll progress */
+#prog{position:fixed;top:64px;left:0;right:0;height:2px;z-index:199;background:rgba(0,237,194,.08)}
+#prog-bar{height:100%;background:var(--a);width:0%;transition:width .1s linear}
 button{appearance:none;-webkit-appearance:none;background:transparent;border:none;font:inherit;color:inherit;cursor:pointer;padding:0}
-
-/* ── NAV ── */
+/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 clamp(1rem,4vw,3.5rem);height:64px;display:flex;align-items:center;justify-content:space-between;gap:1rem;background:rgba(4,7,17,.78);backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,237,194,.07)}
 .logo-wrap{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0}
 .logo-txt{font-family:'Space Mono',monospace;font-size:.7rem;color:var(--a);letter-spacing:.16em;line-height:1.3}
@@ -33,60 +33,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 clamp(1rem,4vw,3.5
 .nav-links a:hover,.nav-links a.active{color:var(--a);border-bottom-color:var(--a)}
 .nav-right{display:flex;gap:.75rem;align-items:center;flex-shrink:0}
 @media(max-width:768px){.nav-links{display:none}.logo-sub{display:none}}
-
-/* ── SHARED BUTTON STYLES — always explicit, never rely on UA ── */
-.btn-primary{
-  display:inline-flex;align-items:center;gap:.4rem;
-  font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.07em;font-weight:700;
-  padding:.7rem 1.6rem;
-  background:var(--a);color:#000;
-  border:2px solid var(--a);
-  text-decoration:none;white-space:nowrap;
-  transition:background .22s,color .22s,transform .18s,box-shadow .18s;
-  cursor:pointer;
-}
+.btn-primary{display:inline-flex;align-items:center;gap:.4rem;font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.07em;font-weight:700;padding:.7rem 1.6rem;background:var(--a);color:#000;border:2px solid var(--a);text-decoration:none;white-space:nowrap;transition:all .22s;cursor:pointer}
 .btn-primary:hover{background:#fff;border-color:#fff;transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--a)}
-
-.btn-outline{
-  display:inline-flex;align-items:center;gap:.4rem;
-  font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.07em;font-weight:400;
-  padding:.7rem 1.6rem;
-  background:transparent;color:var(--t);
-  border:1px solid rgba(221,227,247,.25);
-  text-decoration:none;white-space:nowrap;
-  transition:border-color .22s,color .22s,transform .18s;
-  cursor:pointer;
-}
+.btn-outline{display:inline-flex;align-items:center;gap:.4rem;font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.07em;font-weight:400;padding:.7rem 1.6rem;background:transparent;color:var(--t);border:1px solid rgba(221,227,247,.25);text-decoration:none;white-space:nowrap;transition:all .22s;cursor:pointer}
 .btn-outline:hover{border-color:var(--a);color:var(--a);transform:translate(-2px,-2px)}
-
-.btn-teal-sm{
-  display:inline-flex;align-items:center;gap:.35rem;
-  font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.07em;font-weight:700;
-  padding:.48rem 1rem;
-  background:var(--a);color:#000;
-  border:2px solid var(--a);
-  text-decoration:none;white-space:nowrap;
-  transition:background .2s,transform .18s;
-  cursor:pointer;
-}
+.btn-teal-sm{display:inline-flex;align-items:center;gap:.35rem;font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.07em;font-weight:700;padding:.48rem 1rem;background:var(--a);color:#000;border:2px solid var(--a);text-decoration:none;white-space:nowrap;transition:all .2s;cursor:pointer}
 .btn-teal-sm:hover{background:#fff;border-color:#fff}
-
-.btn-ghost-sm{
-  display:inline-flex;align-items:center;gap:.35rem;
-  font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.07em;font-weight:400;
-  padding:.48rem 1rem;
-  background:transparent;color:var(--a);
-  border:1px solid var(--a);
-  text-decoration:none;white-space:nowrap;
-  transition:background .2s,color .2s;
-  cursor:pointer;
-}
+.btn-ghost-sm{display:inline-flex;align-items:center;gap:.35rem;font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.07em;font-weight:400;padding:.48rem 1rem;background:transparent;color:var(--a);border:1px solid var(--a);text-decoration:none;white-space:nowrap;transition:all .2s;cursor:pointer}
 .btn-ghost-sm:hover{background:var(--a);color:#000}
-
-/* ── SECTIONS ── */
 section{position:relative;z-index:10;padding:0 clamp(1.2rem,5vw,4.5rem)}
-
-/* ── HERO ── */
+/* HERO */
 #hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:64px}
 .eyebrow{font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.25em;color:var(--a);margin-bottom:1.2rem;opacity:0;animation:fup .7s .2s forwards}
 .h1{font-family:'DM Serif Display',serif;font-size:clamp(4rem,10vw,9rem);line-height:.88;letter-spacing:-.02em;opacity:0;animation:fup .8s .4s forwards}
@@ -94,15 +50,7 @@ section{position:relative;z-index:10;padding:0 clamp(1.2rem,5vw,4.5rem)}
 .h1 .l2{display:block;-webkit-text-stroke:1px rgba(0,237,194,.5);color:transparent}
 .hero-role{font-size:clamp(.82rem,1.8vw,.98rem);color:var(--m);margin-top:1.6rem;font-weight:300;letter-spacing:.04em;opacity:0;animation:fup .7s .6s forwards}
 .hero-desc{max-width:500px;font-size:.88rem;line-height:1.75;color:var(--m);margin-top:.9rem;opacity:0;animation:fup .7s .8s forwards}
-.avail-badge{
-  display:inline-flex;align-items:center;gap:.5rem;
-  align-self:flex-start;   /* FIX: was stretching full width */
-  margin-top:1.1rem;
-  padding:.4rem .9rem;
-  border:1px solid rgba(74,222,128,.3);background:rgba(74,222,128,.06);
-  font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.1em;color:#4ade80;
-  opacity:0;animation:fup .7s .9s forwards;
-}
+.avail-badge{display:inline-flex;align-items:center;gap:.5rem;align-self:flex-start;margin-top:1.1rem;padding:.4rem .9rem;border:1px solid rgba(74,222,128,.3);background:rgba(74,222,128,.06);font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.1em;color:#4ade80;opacity:0;animation:fup .7s .9s forwards}
 .avail-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;flex-shrink:0;animation:pulse 2s infinite}
 .hero-cta-row{display:flex;gap:.9rem;align-items:center;margin-top:2rem;flex-wrap:wrap;opacity:0;animation:fup .7s 1s forwards}
 .hero-metrics{display:flex;gap:2rem;margin-top:3.5rem;padding-top:2rem;border-top:1px solid rgba(0,237,194,.07);flex-wrap:wrap;opacity:0;animation:fup .7s 1.2s forwards}
@@ -110,8 +58,7 @@ section{position:relative;z-index:10;padding:0 clamp(1.2rem,5vw,4.5rem)}
 .hm-l{font-size:.63rem;color:var(--m);letter-spacing:.07em;margin-top:.2rem;text-transform:uppercase}
 .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;font-family:'Space Mono',monospace;font-size:.52rem;color:var(--m);letter-spacing:.2em;animation:pulse 2.5s infinite}
 .sh-l{width:1px;height:44px;background:linear-gradient(180deg,var(--a),transparent)}
-
-/* ── PIPELINE ── */
+/* PIPELINE */
 #pipeline{padding-top:8rem;padding-bottom:6rem}
 .s-eye{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.25em;color:var(--a);text-transform:uppercase;margin-bottom:.9rem}
 .s-title{font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,3.2rem);line-height:1;letter-spacing:-.01em;margin-bottom:2rem}
@@ -120,8 +67,7 @@ canvas#pipe{display:block;width:100%;height:340px}
 .pipe-legend{display:flex;gap:1.2rem;margin-top:.75rem;flex-wrap:wrap}
 .leg{display:flex;align-items:center;gap:.38rem;font-family:'Space Mono',monospace;font-size:.56rem;color:var(--m);letter-spacing:.06em}
 .leg-d{width:7px;height:7px;transform:rotate(45deg);flex-shrink:0}
-
-/* ── STACK ── */
+/* STACK */
 #stack{padding-top:7rem;padding-bottom:6rem}
 .stack-tiers{display:flex;flex-direction:column;gap:1.8rem;margin-top:2rem}
 .tier-hd{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:.75rem;display:flex;align-items:center;gap:.7rem}
@@ -131,8 +77,7 @@ canvas#pipe{display:block;width:100%;height:340px}
 .chip.ex{border-color:rgba(0,237,194,.3);color:var(--t)}.chip.ex:hover{border-color:var(--a);color:var(--a);transform:translateY(-2px)}
 .chip.so{border-color:rgba(124,111,247,.25);color:var(--t)}.chip.so:hover{border-color:var(--a2);color:var(--a2);transform:translateY(-2px)}
 .chip.fa{border-color:rgba(90,107,153,.22);color:var(--m)}.chip.fa:hover{border-color:var(--m);color:var(--t);transform:translateY(-2px)}
-
-/* ── EXPERIENCE ── */
+/* EXPERIENCE */
 #experience{padding-top:7rem;padding-bottom:6rem}
 .exp-row{display:grid;grid-template-columns:160px 1fr;gap:2rem;padding:2.2rem 0;border-top:1px solid rgba(0,237,194,.055);transition:background .25s,padding-left .25s}
 .exp-row:hover{background:rgba(0,237,194,.012);padding-left:.6rem}
@@ -145,8 +90,7 @@ canvas#pipe{display:block;width:100%;height:340px}
 .eb strong{color:var(--t);font-weight:600}
 .exp-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.9rem}
 .etag{font-family:'Space Mono',monospace;font-size:.54rem;padding:.18rem .55rem;border:1px solid rgba(0,237,194,.12);color:var(--a);letter-spacing:.05em}
-
-/* ── IMPACT ── */
+/* IMPACT */
 #impact{padding-top:7rem;padding-bottom:6rem}
 .imp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(0,237,194,.04);margin-top:2rem}
 @media(max-width:700px){.imp-grid{grid-template-columns:1fr 1fr}}
@@ -158,8 +102,7 @@ canvas#pipe{display:block;width:100%;height:340px}
 .imp-name{font-size:.82rem;font-weight:700;margin-bottom:.35rem}
 .imp-desc{font-size:.75rem;line-height:1.6;color:var(--m)}
 .imp-tech{font-family:'Space Mono',monospace;font-size:.56rem;color:var(--a2);margin-top:.7rem;letter-spacing:.05em}
-
-/* ── TERMINAL ── */
+/* TERMINAL */
 #terminal-sec{padding-top:7rem;padding-bottom:6rem}
 .term-outer{border:1px solid rgba(0,237,194,.16);overflow:hidden}
 .term-bar{background:#111827;padding:.5rem .9rem;display:flex;align-items:center;gap:.45rem;border-bottom:1px solid rgba(255,255,255,.04)}
@@ -175,14 +118,16 @@ canvas#pipe{display:block;width:100%;height:340px}
 .term-hints{display:flex;gap:.5rem;flex-wrap:wrap;padding:.5rem 1.1rem .6rem;background:#0d1117;border-top:1px solid rgba(255,255,255,.03)}
 .hint{font-family:'Space Mono',monospace;font-size:.54rem;padding:.2rem .55rem;border:1px solid rgba(0,237,194,.12);color:var(--m);cursor:pointer;transition:all .18s;background:transparent}
 .hint:hover{color:var(--a);border-color:rgba(0,237,194,.35)}
-
-/* ── GAME ── */
+/* GAME */
 #game-sec{padding-top:7rem;padding-bottom:6rem}
 .game-wrap{display:flex;gap:1.8rem;flex-wrap:wrap;border:1px solid rgba(0,237,194,.1);background:rgba(8,14,32,.8);padding:1.6rem}
 .game-left{flex:1;min-width:260px}
-.game-hud{display:flex;gap:1.2rem;margin-bottom:1rem;flex-wrap:wrap}
+.game-hud{display:flex;gap:1.2rem;margin-bottom:1rem;flex-wrap:wrap;align-items:flex-end}
 .hud-item{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--m);letter-spacing:.09em}
 .hud-item span{color:var(--a);font-size:.82rem;font-weight:700;display:block}
+/* tier upgrade flash */
+.tier-flash{animation:tierPop .6s ease forwards}
+@keyframes tierPop{0%{transform:scale(1.5)}60%{transform:scale(.9)}100%{transform:scale(1)}}
 canvas#game{display:block;border:1px solid rgba(0,237,194,.18);width:100%;max-width:480px;image-rendering:pixelated;touch-action:none}
 .mobile-controls{display:none;gap:.75rem;margin-top:.8rem;align-items:center;justify-content:center}
 @media(pointer:coarse){.mobile-controls{display:flex}}
@@ -191,34 +136,45 @@ canvas#game{display:block;border:1px solid rgba(0,237,194,.18);width:100%;max-wi
 .game-btns{display:flex;gap:.6rem;margin-top:.85rem;flex-wrap:wrap}
 .gc-btn{font-family:'Space Mono',monospace;font-size:.6rem;padding:.45rem .9rem;border:1px solid rgba(0,237,194,.2);color:var(--a);background:transparent;cursor:pointer;transition:all .18s;letter-spacing:.07em}
 .gc-btn:hover{background:rgba(0,237,194,.07);border-color:var(--a)}
-.game-right{width:200px;min-width:160px;flex-shrink:0}
+.game-right{width:210px;min-width:170px;flex-shrink:0}
 .game-info{font-family:'Space Mono',monospace}
-.gi-title{font-size:.6rem;letter-spacing:.14em;color:var(--a);margin-bottom:.7rem;text-transform:uppercase}
+.gi-title{font-size:.6rem;letter-spacing:.14em;color:var(--a);margin-bottom:.7rem;text-transform:uppercase;border-bottom:1px solid rgba(0,237,194,.1);padding-bottom:.4rem}
 .gi-line{font-size:.58rem;color:var(--m);margin-bottom:.38rem;line-height:1.5}
 .gi-line b{color:var(--t)}
+/* DYNAMIC LEADERBOARD */
 .leaderboard{margin-top:1.2rem}
-.lb-entry{display:flex;justify-content:space-between;padding:.3rem 0;border-bottom:1px solid rgba(0,237,194,.05);font-size:.58rem}
-.lb-rank{color:var(--a4)}.lb-name{color:var(--m)}.lb-score{color:var(--a);font-weight:700}
-#g-badge{margin-top:1rem;padding:.7rem;border:1px solid var(--a4);background:rgba(245,166,35,.07);font-size:.58rem;color:var(--a4);letter-spacing:.07em;display:none;line-height:1.5}
-
-/* ── CONTACT ── */
+#lb-list{display:flex;flex-direction:column;gap:0}
+.lb-entry{display:flex;justify-content:space-between;align-items:center;padding:.32rem 0;border-bottom:1px solid rgba(0,237,194,.05);font-size:.58rem;transition:background .2s}
+.lb-entry.you{background:rgba(0,237,194,.05);padding-left:.4rem;padding-right:.4rem;margin:0 -.4rem}
+.lb-rank{color:var(--a4);min-width:20px;font-weight:700}
+.lb-rank.top{color:var(--a)}
+.lb-name{color:var(--m);flex:1;margin:0 .5rem}
+.lb-name.you{color:var(--t);font-weight:700}
+.lb-score{color:var(--a);font-weight:700;font-size:.6rem}
+/* badge */
+#g-badge{margin-top:1rem;padding:.7rem;border-width:1px;border-style:solid;font-size:.58rem;letter-spacing:.07em;display:none;line-height:1.5;transition:all .3s}
+/* tier announce overlay */
+#tier-announce{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Space Mono',monospace;font-size:1.1rem;font-weight:700;pointer-events:none;opacity:0;text-align:center;z-index:10;white-space:nowrap}
+.game-canvas-wrap{position:relative;display:inline-block;width:100%;max-width:480px}
+/* CONTACT */
 #contact{padding-top:7rem;padding-bottom:8rem}
 .contact-big{font-family:'DM Serif Display',serif;font-size:clamp(2.5rem,6vw,5.5rem);line-height:.92;letter-spacing:-.02em;margin-bottom:2rem}
 .contact-big em{color:var(--a);font-style:italic}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(0,237,194,.05);max-width:560px}
 @media(max-width:480px){.contact-grid{grid-template-columns:1fr}}
-.cc{background:var(--bg);padding:1.3rem 1.6rem;text-decoration:none;display:block;border-bottom:2px solid transparent;transition:background .25s,border-color .25s}
+.cc{background:var(--bg);padding:1.3rem 1.6rem;text-decoration:none;display:block;border-bottom:2px solid transparent;transition:background .25s,border-color .25s;position:relative}
 .cc:hover{background:var(--s1);border-bottom-color:var(--a)}
-.cc-lbl{font-family:'Space Mono',monospace;font-size:.54rem;letter-spacing:.16em;color:var(--a);margin-bottom:.3rem;text-transform:uppercase}
+.cc-lbl{font-family:'Space Mono',monospace;font-size:.54rem;letter-spacing:.16em;color:var(--a);margin-bottom:.3rem;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between}
 .cc-val{font-size:.82rem;color:var(--t);word-break:break-all;transition:color .2s}
 .cc:hover .cc-val{color:var(--a)}
+.copy-btn{font-family:'Space Mono',monospace;font-size:.5rem;padding:.15rem .4rem;border:1px solid rgba(0,237,194,.2);color:var(--m);background:transparent;cursor:pointer;transition:all .2s;letter-spacing:.05em}
+.copy-btn:hover{color:var(--a);border-color:var(--a)}
+.copy-btn.copied{color:#4ade80;border-color:#4ade80}
 .resume-box{margin-top:2rem;padding:1.6rem 1.8rem;border:1px solid rgba(0,237,194,.13);background:rgba(8,14,32,.5);display:flex;align-items:center;justify-content:space-between;gap:1.2rem;max-width:560px;flex-wrap:wrap}
 .rb-txt h3{font-size:.95rem;font-weight:700;margin-bottom:.28rem}
 .rb-txt p{font-size:.75rem;color:var(--m)}
-
 footer{position:relative;z-index:10;padding:1.6rem clamp(1.2rem,5vw,4.5rem);border-top:1px solid rgba(0,237,194,.055);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
 .ft{font-family:'Space Mono',monospace;font-size:.58rem;color:var(--m);letter-spacing:.07em}
-
 .rev{opacity:0;transform:translateY(28px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
 .rev.in{opacity:1;transform:translateY(0)}
 @keyframes fup{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
@@ -227,6 +183,7 @@ footer{position:relative;z-index:10;padding:1.6rem clamp(1.2rem,5vw,4.5rem);bord
 </head>
 <body>
 <div id="cur"></div><div id="cur-r"></div>
+<div id="prog"><div id="prog-bar"></div></div>
 <div class="grid-bg"></div><div class="vig"></div>
 <canvas id="space"></canvas>
 
@@ -301,21 +258,15 @@ footer{position:relative;z-index:10;padding:1.6rem clamp(1.2rem,5vw,4.5rem);bord
   <div class="rev stack-tiers">
     <div>
       <div class="tier-hd" style="color:var(--a)">Expert — daily production</div>
-      <div class="chips">
-        <span class="chip ex">⚡ Apache Spark</span><span class="chip ex">☸ Kubernetes/OpenShift</span><span class="chip ex">🐳 Docker & Helm</span><span class="chip ex">🧊 Apache Iceberg</span><span class="chip ex">🐍 PySpark/Python</span><span class="chip ex">🌊 Airflow</span><span class="chip ex">🟠 Apache NiFi</span><span class="chip ex">📦 Parquet/Avro/ORC</span>
-      </div>
+      <div class="chips"><span class="chip ex">⚡ Apache Spark</span><span class="chip ex">☸ Kubernetes/OpenShift</span><span class="chip ex">🐳 Docker & Helm</span><span class="chip ex">🧊 Apache Iceberg</span><span class="chip ex">🐍 PySpark/Python</span><span class="chip ex">🌊 Airflow</span><span class="chip ex">🟠 Apache NiFi</span><span class="chip ex">📦 Parquet/Avro/ORC</span></div>
     </div>
     <div>
       <div class="tier-hd" style="color:var(--a2)">Solid — built and shipped</div>
-      <div class="chips">
-        <span class="chip so">🔷 Trino</span><span class="chip so">📡 Kafka</span><span class="chip so">🗄 Hive Metastore</span><span class="chip so">🧪 DBT</span><span class="chip so">🪣 MinIO/S3</span><span class="chip so">📊 Superset</span><span class="chip so">☁ Azure</span><span class="chip so">🔑 Lakekeeper</span>
-      </div>
+      <div class="chips"><span class="chip so">🔷 Trino</span><span class="chip so">📡 Kafka</span><span class="chip so">🗄 Hive Metastore</span><span class="chip so">🧪 DBT</span><span class="chip so">🪣 MinIO/S3</span><span class="chip so">📊 Superset</span><span class="chip so">☁ Azure</span><span class="chip so">🔑 Lakekeeper</span></div>
     </div>
     <div>
       <div class="tier-hd" style="color:var(--m)">Working knowledge</div>
-      <div class="chips">
-        <span class="chip fa">⭐ StarRocks</span><span class="chip fa">🎯 Doris</span><span class="chip fa">☕ Java</span><span class="chip fa">⚙ CI/CD</span><span class="chip fa">🗃 Oracle/PostgreSQL</span><span class="chip fa">🔴 ODF/Ceph</span>
-      </div>
+      <div class="chips"><span class="chip fa">⭐ StarRocks</span><span class="chip fa">🎯 Doris</span><span class="chip fa">☕ Java</span><span class="chip fa">⚙ CI/CD</span><span class="chip fa">🗃 Oracle/PostgreSQL</span><span class="chip fa">🔴 ODF/Ceph</span></div>
     </div>
   </div>
 </section>
@@ -401,7 +352,7 @@ footer{position:relative;z-index:10;padding:1.6rem clamp(1.2rem,5vw,4.5rem);bord
 
 <section id="game-sec">
   <div class="rev"><div class="s-eye">// 06 · Data Pipeline Defender</div><h2 class="s-title">Protect your lakehouse.</h2></div>
-  <div class="rev"><p style="font-size:.82rem;color:var(--m);margin-bottom:1.3rem;line-height:1.7"><strong style="color:var(--t)">A/D or ← →</strong> to move · <strong style="color:var(--t)">Space</strong> to fire · Reach <strong style="color:var(--a4)">Gold (700pts)</strong> or <strong style="color:var(--a3)">Platinum (1200pts)</strong> 🏆</p></div>
+  <div class="rev"><p style="font-size:.82rem;color:var(--m);margin-bottom:1.3rem;line-height:1.7"><strong style="color:var(--t)">A/D or ← →</strong> to move · <strong style="color:var(--t)">Space</strong> to fire · Enter to start · Beat the leaderboard 🏆</p></div>
   <div class="rev game-wrap">
     <div class="game-left">
       <div class="game-hud">
@@ -409,8 +360,12 @@ footer{position:relative;z-index:10;padding:1.6rem clamp(1.2rem,5vw,4.5rem);bord
         <div class="hud-item"><span id="g-lives">♦♦♦</span>INTEGRITY</div>
         <div class="hud-item"><span id="g-wave">1</span>WAVE</div>
         <div class="hud-item"><span id="g-tier" style="color:var(--a)">BRONZE</span>TIER</div>
+        <div class="hud-item"><span id="g-hi">0</span>BEST</div>
       </div>
-      <canvas id="game" width="480" height="340" tabindex="0" role="application" aria-label="Data Pipeline Defender game"></canvas>
+      <div class="game-canvas-wrap">
+        <canvas id="game" width="480" height="340" tabindex="0" role="application" aria-label="Data Pipeline Defender game"></canvas>
+        <div id="tier-announce"></div>
+      </div>
       <div class="mobile-controls">
         <button class="mc-btn" id="mc-left">◀ LEFT</button>
         <button class="mc-btn mc-fire" id="mc-fire">FIRE ●</button>
@@ -425,22 +380,18 @@ footer{position:relative;z-index:10;padding:1.6rem clamp(1.2rem,5vw,4.5rem);bord
     <div class="game-right">
       <div class="game-info">
         <div class="gi-title">How to play</div>
-        <div class="gi-line"><b>← → / A D</b> — move ship</div>
-        <div class="gi-line"><b>Space</b> — fire query</div>
+        <div class="gi-line"><b>← → / A D</b> — move</div>
+        <div class="gi-line"><b>Space / Enter</b> — fire</div>
         <div class="gi-line"><b style="color:#ff5e7a">NULL/CORRUPT</b> — 10–15pts</div>
         <div class="gi-line"><b style="color:var(--a2)">SCHEMA DRIFT</b> — 20pts</div>
         <div class="gi-line"><b style="color:var(--a4)">DUPLICATE</b> — 25pts</div>
-        <div class="gi-line" style="margin-top:.7rem"><b style="color:var(--a)">BRONZE</b> 0–299</div>
-        <div class="gi-line"><b style="color:var(--a2)">SILVER</b> 300–699</div>
-        <div class="gi-line"><b style="color:var(--a4)">GOLD</b> 700–1199</div>
-        <div class="gi-line"><b style="color:#ff5e7a">PLATINUM</b> 1200+</div>
-        <div class="leaderboard">
-          <div class="gi-title" style="margin-top:1rem">Leaderboard</div>
-          <div class="lb-entry"><span class="lb-rank">#1</span><span class="lb-name">Prashant N.</span><span class="lb-score">2840</span></div>
-          <div class="lb-entry"><span class="lb-rank">#2</span><span class="lb-name">DataEng_Pro</span><span class="lb-score">1920</span></div>
-          <div class="lb-entry"><span class="lb-rank">#3</span><span class="lb-name">SparkMaster</span><span class="lb-score">1450</span></div>
-          <div class="lb-entry"><span class="lb-rank">#4</span><span class="lb-name">YOU</span><span class="lb-score" id="g-personal">0</span></div>
-        </div>
+        <div class="gi-line" style="margin-top:.7rem;color:var(--m);font-size:.55rem">Score × Wave multiplier</div>
+        <div class="gi-line"><b style="color:var(--a)">▶ BRONZE</b> 0–299</div>
+        <div class="gi-line"><b style="color:var(--a2)">▶ SILVER</b> 300–699</div>
+        <div class="gi-line"><b style="color:var(--a4)">▶ GOLD</b> 700–1199</div>
+        <div class="gi-line"><b style="color:#ff5e7a">▶ PLATINUM</b> 1200+</div>
+        <div class="gi-title" style="margin-top:1.2rem">Leaderboard</div>
+        <div id="lb-list"></div>
         <div id="g-badge"></div>
       </div>
     </div>
@@ -452,24 +403,35 @@ footer{position:relative;z-index:10;padding:1.6rem clamp(1.2rem,5vw,4.5rem);bord
   <div class="rev contact-big">Let's build<br>something <em>extraordinary</em>.</div>
   <div class="rev"><p style="font-size:.88rem;color:var(--m);max-width:460px;line-height:1.75;margin-bottom:1.8rem">Data engineering roles, platform architecture, distributed systems. Kathmandu — available globally.</p></div>
   <div class="rev contact-grid">
-    <a href="mailto:404.nepal.prashant@gmail.com" class="cc"><div class="cc-lbl">Email</div><div class="cc-val">404.nepal.prashant@gmail.com</div></a>
+    <a href="mailto:404.nepal.prashant@gmail.com" class="cc">
+      <div class="cc-lbl">Email <button class="copy-btn" id="copy-email" onclick="copyText(event,'404.nepal.prashant@gmail.com','copy-email')">copy</button></div>
+      <div class="cc-val">404.nepal.prashant@gmail.com</div>
+    </a>
     <a href="https://linkedin.com/in/nepalprashant" class="cc" target="_blank" rel="noopener"><div class="cc-lbl">LinkedIn</div><div class="cc-val">nepalprashant</div></a>
     <a href="https://github.com/nepalprashant" class="cc" target="_blank" rel="noopener"><div class="cc-lbl">GitHub</div><div class="cc-val">nepalprashant</div></a>
     <a href="tel:+9779824321005" class="cc"><div class="cc-lbl">Phone · UTC+5:45</div><div class="cc-val">+977 982 432 1005</div></a>
   </div>
   <div class="rev resume-box">
-    <div class="rb-txt"><h3>Download Resume</h3><p>Full CV · opens in browser · print to PDF</p></div>
+    <div class="rb-txt"><h3>Download Resume</h3><p>Full CV · opens in browser · Ctrl+P to save as PDF</p></div>
     <button class="btn-primary" id="dl-resume-btn">↓ Download Resume</button>
   </div>
 </section>
 
 <footer>
-  <div class="ft">© 2025 Prashant Nepal · Kathmandu, Nepal (UTC+5:45)</div>
+  <div class="ft">© <span id="year"></span> Prashant Nepal · Kathmandu, Nepal (UTC+5:45)</div>
   <div class="ft" style="color:var(--a)">Built with data engineering precision.</div>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
+// Footer Year
+document.getElementById("year").textContent = new Date().getFullYear();
+// ── SCROLL PROGRESS ──
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  document.getElementById('prog-bar').style.width=((h.scrollTop/(h.scrollHeight-h.clientHeight))*100)+'%';
+},{passive:true});
+
 // ── CURSOR ──
 if(matchMedia('(pointer:fine)').matches){
   const cur=document.getElementById('cur'),curR=document.getElementById('cur-r');
@@ -485,8 +447,7 @@ if(matchMedia('(pointer:fine)').matches){
 // ── STAR FIELD ──
 const spaceEl=document.getElementById('space');
 const sr=new THREE.WebGLRenderer({canvas:spaceEl,alpha:true,powerPreference:'low-power'});
-sr.setPixelRatio(Math.min(devicePixelRatio,2));
-sr.setSize(innerWidth,innerHeight);
+sr.setPixelRatio(Math.min(devicePixelRatio,2));sr.setSize(innerWidth,innerHeight);
 const ss=new THREE.Scene(),scam=new THREE.PerspectiveCamera(60,innerWidth/innerHeight,.1,1000);
 scam.position.z=4;
 const sg=new THREE.BufferGeometry(),spos=new Float32Array(2000*3),scol=new Float32Array(2000*3);
@@ -508,65 +469,38 @@ function rp(){pc.width=pc.offsetWidth*devicePixelRatio;pc.height=pc.offsetHeight
 rp();addEventListener('resize',rp);
 const PW=()=>pc.offsetWidth,PH=()=>pc.offsetHeight;
 const pnodes=[
-  {id:'kafka',l:'Kafka',s:'Events',x:.06,y:.28,c:'#00edc2'},
-  {id:'sftp',l:'SFTP',s:'Files',x:.06,y:.52,c:'#00edc2'},
-  {id:'oracle',l:'Oracle CDC',s:'Changes',x:.06,y:.76,c:'#00edc2'},
-  {id:'nifi',l:'NiFi',s:'3TB+/day',x:.22,y:.52,c:'#00edc2'},
-  {id:'bronze',l:'Bronze',s:'Raw',x:.37,y:.52,c:'#00edc2'},
-  {id:'spark',l:'Spark ETL',s:'4× speed',x:.52,y:.52,c:'#7c6ff7'},
-  {id:'silver',l:'Silver',s:'Clean',x:.68,y:.32,c:'#7c6ff7'},
-  {id:'gold',l:'Gold',s:'Analytics',x:.68,y:.72,c:'#f5a623'},
-  {id:'trino',l:'Trino',s:'Queries',x:.84,y:.32,c:'#f5a623'},
-  {id:'superset',l:'Superset',s:'Dashboards',x:.84,y:.72,c:'#f5a623'},
+  {id:'kafka',l:'Kafka',s:'Events',x:.06,y:.28,c:'#00edc2'},{id:'sftp',l:'SFTP',s:'Files',x:.06,y:.52,c:'#00edc2'},
+  {id:'oracle',l:'Oracle CDC',s:'Changes',x:.06,y:.76,c:'#00edc2'},{id:'nifi',l:'NiFi',s:'3TB+/day',x:.22,y:.52,c:'#00edc2'},
+  {id:'bronze',l:'Bronze',s:'Raw',x:.37,y:.52,c:'#00edc2'},{id:'spark',l:'Spark ETL',s:'4× speed',x:.52,y:.52,c:'#7c6ff7'},
+  {id:'silver',l:'Silver',s:'Clean',x:.68,y:.32,c:'#7c6ff7'},{id:'gold',l:'Gold',s:'Analytics',x:.68,y:.72,c:'#f5a623'},
+  {id:'trino',l:'Trino',s:'Queries',x:.84,y:.32,c:'#f5a623'},{id:'superset',l:'Superset',s:'Dashboards',x:.84,y:.72,c:'#f5a623'},
   {id:'dlq',l:'DLQ',s:'Failed',x:.52,y:.1,c:'#ff5e7a'},
 ];
-const pedges=[
-  {f:'kafka',t:'nifi'},{f:'sftp',t:'nifi'},{f:'oracle',t:'nifi'},
-  {f:'nifi',t:'bronze'},{f:'bronze',t:'spark'},
-  {f:'spark',t:'silver'},{f:'spark',t:'gold'},{f:'spark',t:'dlq',dash:true},
-  {f:'silver',t:'trino'},{f:'gold',t:'superset'},
-];
+const pedges=[{f:'kafka',t:'nifi'},{f:'sftp',t:'nifi'},{f:'oracle',t:'nifi'},{f:'nifi',t:'bronze'},{f:'bronze',t:'spark'},{f:'spark',t:'silver'},{f:'spark',t:'gold'},{f:'spark',t:'dlq',dash:true},{f:'silver',t:'trino'},{f:'gold',t:'superset'}];
 let pparts=[],ptimers={};
 pedges.forEach(e=>{ptimers[e.f+e.t]=Math.random()*50});
-function rrect(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.arcTo(x+w,y,x+w,y+r,r);ctx.lineTo(x+w,y+h-r);ctx.arcTo(x+w,y+h,x+w-r,y+h,r);ctx.lineTo(x+r,y+h);ctx.arcTo(x,y+h,x,y+h-r,r);ctx.lineTo(x,y+r);ctx.arcTo(x,y,x+r,y,r);ctx.closePath()}
+function rrect(c,x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.lineTo(x+w-r,y);c.arcTo(x+w,y,x+w,y+r,r);c.lineTo(x+w,y+h-r);c.arcTo(x+w,y+h,x+w-r,y+h,r);c.lineTo(x+r,y+h);c.arcTo(x,y+h,x,y+h-r,r);c.lineTo(x,y+r);c.arcTo(x,y,x+r,y,r);c.closePath()}
 function drawPipe(){
-  requestAnimationFrame(drawPipe);
-  if(!pipeActive)return;
-  const w=PW(),h=PH();
-  pctx.clearRect(0,0,w,h);
+  requestAnimationFrame(drawPipe);if(!pipeActive)return;
+  const w=PW(),h=PH();pctx.clearRect(0,0,w,h);
   pedges.forEach(e=>{
-    const fn=pnodes.find(n=>n.id===e.f),tn=pnodes.find(n=>n.id===e.t);
-    if(!fn||!tn)return;
+    const fn=pnodes.find(n=>n.id===e.f),tn=pnodes.find(n=>n.id===e.t);if(!fn||!tn)return;
     pctx.beginPath();pctx.moveTo(fn.x*w,fn.y*h);pctx.lineTo(tn.x*w,tn.y*h);
-    pctx.setLineDash(e.dash?[4,4]:[]);
-    pctx.strokeStyle=e.dash?'rgba(255,94,122,.2)':'rgba(0,237,194,.09)';
-    pctx.lineWidth=1;pctx.stroke();pctx.setLineDash([]);
-    const k=e.f+e.t;ptimers[k]--;
-    if(ptimers[k]<=0){
-      pparts.push({e,t:0,sp:.003+Math.random()*.005,sz:1.8+Math.random()*1.8,c:e.dash?'#ff5e7a':fn.c});
-      ptimers[k]=20+Math.random()*38;
-    }
+    pctx.setLineDash(e.dash?[4,4]:[]);pctx.strokeStyle=e.dash?'rgba(255,94,122,.2)':'rgba(0,237,194,.09)';pctx.lineWidth=1;pctx.stroke();pctx.setLineDash([]);
+    const k=e.f+e.t;ptimers[k]--;if(ptimers[k]<=0){pparts.push({e,t:0,sp:.003+Math.random()*.005,sz:1.8+Math.random()*1.8,c:e.dash?'#ff5e7a':fn.c});ptimers[k]=20+Math.random()*38;}
   });
   pparts=pparts.filter(p=>{
     p.t+=p.sp;if(p.t>=1)return false;
-    const fn=pnodes.find(n=>n.id===p.e.f),tn=pnodes.find(n=>n.id===p.e.t);
-    if(!fn||!tn)return false;
+    const fn=pnodes.find(n=>n.id===p.e.f),tn=pnodes.find(n=>n.id===p.e.t);if(!fn||!tn)return false;
     const x=fn.x*w+(tn.x-fn.x)*w*p.t,y=fn.y*h+(tn.y-fn.y)*h*p.t;
-    pctx.shadowColor=p.c;pctx.shadowBlur=5;
-    pctx.beginPath();pctx.arc(x,y,p.sz,0,Math.PI*2);
-    pctx.fillStyle=p.c;pctx.globalAlpha=.82;pctx.fill();
-    pctx.globalAlpha=1;pctx.shadowBlur=0;return true;
+    pctx.shadowColor=p.c;pctx.shadowBlur=5;pctx.beginPath();pctx.arc(x,y,p.sz,0,Math.PI*2);pctx.fillStyle=p.c;pctx.globalAlpha=.82;pctx.fill();pctx.globalAlpha=1;pctx.shadowBlur=0;return true;
   });
   pnodes.forEach(n=>{
     const x=n.x*w,y=n.y*h,nw=84,nh=38;
-    pctx.shadowColor=n.c;pctx.shadowBlur=8;
-    pctx.fillStyle=n.c+'14';pctx.strokeStyle=n.c+'50';pctx.lineWidth=1;
-    rrect(pctx,x-nw/2,y-nh/2,nw,nh,3);pctx.fill();pctx.stroke();
-    pctx.shadowBlur=0;
-    pctx.fillStyle=n.c;pctx.font='bold 9px Space Mono,monospace';pctx.textAlign='center';
-    pctx.fillText(n.l,x,y-3);
-    pctx.fillStyle='rgba(90,107,153,.8)';pctx.font='7px Space Mono,monospace';
-    pctx.fillText(n.s,x,y+9);
+    pctx.shadowColor=n.c;pctx.shadowBlur=8;pctx.fillStyle=n.c+'14';pctx.strokeStyle=n.c+'50';pctx.lineWidth=1;
+    rrect(pctx,x-nw/2,y-nh/2,nw,nh,3);pctx.fill();pctx.stroke();pctx.shadowBlur=0;
+    pctx.fillStyle=n.c;pctx.font='bold 9px Space Mono,monospace';pctx.textAlign='center';pctx.fillText(n.l,x,y-3);
+    pctx.fillStyle='rgba(90,107,153,.8)';pctx.font='7px Space Mono,monospace';pctx.fillText(n.s,x,y+9);
   });
 }
 drawPipe();
@@ -577,18 +511,18 @@ let termHistory=[],histIdx=-1;
 const allCmds=['help','whoami','skills','experience','impact','contact','resume','game','clear','easteregg','stack spark','stack k8s','stack iceberg'];
 const cmdDefs={
   help:{r:()=>[{c:'info',t:'══ Commands ══════════════════════════'},{c:'cmd',t:'whoami         about me'},{c:'cmd',t:'skills         tech stack'},{c:'cmd',t:'experience     work history'},{c:'cmd',t:'impact         key metrics'},{c:'cmd',t:'stack spark    Spark deep-dive'},{c:'cmd',t:'stack k8s      Kubernetes deep-dive'},{c:'cmd',t:'stack iceberg  Iceberg deep-dive'},{c:'cmd',t:'contact        get in touch'},{c:'cmd',t:'resume         open resume'},{c:'cmd',t:'game           jump to game'},{c:'cmd',t:'clear          clear terminal'},{c:'cmd',t:'easteregg      🤫'}]},
-  whoami:{r:()=>[{c:'ok',t:'Prashant Nepal — Data Engineer'},{c:'out',t:'Location  : Kathmandu, Nepal (UTC+5:45)'},{c:'out',t:'Current   : DLytica Inc. → Client: Ooredoo'},{c:'out',t:'Education : BSc (Hons) Computing, Distinction 82.56%'},{c:'out',t:'Expertise : Spark, Iceberg Lakehouse, Kubernetes'},{c:'out',t:'Award     : FYP Showcase Winner — IIC 2022'},{c:'ok',t:'Status    : Available for new opportunities'}]},
-  skills:{r:()=>[{c:'info',t:'── EXPERT ──────────────────────────'},{c:'out',t:'Spark · K8s/OpenShift · Docker · Iceberg'},{c:'out',t:'PySpark · Airflow · NiFi · Parquet/Avro/ORC'},{c:'info',t:'── SOLID ───────────────────────────'},{c:'out',t:'Trino · Kafka · Hive Metastore · DBT · MinIO'},{c:'out',t:'Azure · Lakekeeper · Superset · SQL'},{c:'info',t:'── FAMILIAR ────────────────────────'},{c:'out',t:'StarRocks · Doris · Java · CI/CD · Oracle'}]},
-  experience:{r:()=>[{c:'ok',t:'[2025–now]  Data Engineer @ DLytica / Ooredoo'},{c:'out',t:'            4× Spark, OpenShift, Iceberg lakehouse'},{c:'ok',t:'[2025–now]  Tutor @ DLytica Academy'},{c:'out',t:'            10+ fellows: Spark, K8s, DBT, Airflow'},{c:'ok',t:'[2023–2024] Junior SWE @ Offer Sewa'},{c:'out',t:'            40% query perf improvement'},{c:'ok',t:'[2021–2022] Intern @ BlueFox'},{c:'out',t:'            Flutter/Laravel mobile app'}]},
-  impact:{r:()=>[{c:'ok',t:'80%  — Pipeline runtime reduction'},{c:'ok',t:'4×   — Spark performance gain'},{c:'ok',t:'99%  — Job success rate on Kubernetes'},{c:'ok',t:'85%  — Downstream error reduction'},{c:'ok',t:'3×   — Read throughput improvement'},{c:'ok',t:'70%  — Faster developer onboarding'},{c:'ok',t:'3TB+ — Daily ingestion volume'}]},
+  whoami:{r:()=>[{c:'ok',t:'Prashant Nepal — Data Engineer'},{c:'out',t:'Location  : Kathmandu, Nepal (UTC+5:45)'},{c:'out',t:'Current   : DLytica Inc. → Client: Ooredoo'},{c:'out',t:'Education : BSc (Hons) Computing, Distinction 82.56%'},{c:'ok',t:'Status    : Available for new opportunities'}]},
+  skills:{r:()=>[{c:'info',t:'── EXPERT ──────────────────────────'},{c:'out',t:'Spark · K8s/OpenShift · Docker · Iceberg'},{c:'out',t:'PySpark · Airflow · NiFi · Parquet/Avro/ORC'},{c:'info',t:'── SOLID ───────────────────────────'},{c:'out',t:'Trino · Kafka · Hive Metastore · DBT · MinIO'},{c:'info',t:'── FAMILIAR ────────────────────────'},{c:'out',t:'StarRocks · Doris · Java · CI/CD · Oracle'}]},
+  experience:{r:()=>[{c:'ok',t:'[2025–now]  Data Engineer @ DLytica / Ooredoo'},{c:'out',t:'            4× Spark · OpenShift · Iceberg lakehouse'},{c:'ok',t:'[2025–now]  Tutor @ DLytica Academy'},{c:'ok',t:'[2023–24]   Junior SWE @ Offer Sewa — 40% perf gain'},{c:'ok',t:'[2021–22]   Intern @ BlueFox'}]},
+  impact:{r:()=>[{c:'ok',t:'80%  — Pipeline runtime reduction'},{c:'ok',t:'4×   — Spark performance gain'},{c:'ok',t:'99%  — Job success rate on Kubernetes'},{c:'ok',t:'85%  — Downstream error reduction'},{c:'ok',t:'3×   — Read throughput · 70% faster onboarding'}]},
   contact:{r:()=>[{c:'info',t:'── Contact ─────────────────────────'},{c:'out',t:'Email    : 404.nepal.prashant@gmail.com'},{c:'out',t:'Phone    : +977 982 432 1005 (UTC+5:45)'},{c:'out',t:'LinkedIn : linkedin.com/in/nepalprashant'},{c:'out',t:'GitHub   : github.com/nepalprashant'}]},
-  resume:{r:()=>{triggerResume();return[{c:'ok',t:'Opening resume...'}]}},
+  resume:{r:()=>{triggerResume();return[{c:'ok',t:'Opening resume in new tab...'}]}},
   game:{r:()=>{setTimeout(()=>document.getElementById('game-sec').scrollIntoView({behavior:'smooth'}),300);return[{c:'ok',t:'Jumping to Data Pipeline Defender...'}]}},
   clear:{r:()=>{tout.innerHTML='';return[]}},
-  easteregg:{r:()=>[{c:'warn',t:'🥚 Easter egg unlocked!'},{c:'ok',t:'SELECT * FROM prashant.superpowers LIMIT 5;'},{c:'info',t:''},{c:'out',t:'skill              | level  | note'},{c:'out',t:'───────────────────+────────+──────────────────'},{c:'ok',t:'Spark debugging    | 9999   | OOM whisperer'},{c:'ok',t:'K8s pod therapy    | 9980   | Scheduler healer'},{c:'ok',t:'Iceberg carving    | 9750   | Cold table sculptor'},{c:'ok',t:'NiFi backpressure  | 9600   | Flow exorcist'},{c:'ok',t:'Coffee → commits   | ∞      | Certified daily'},{c:'info',t:''},{c:'warn',t:'5 rows · 0.003s · via Trino on Gold layer'}]},
-  'stack spark':{r:()=>[{c:'info',t:'── Apache Spark ────────────────────'},{c:'out',t:'Version  : 3.5.0 with Spark Connect'},{c:'out',t:'Deploy   : Kubernetes Spark Operator'},{c:'out',t:'Tuned    : AQE, broadcast joins, shuffle parts'},{c:'ok',t:'Result   : 4× perf · 80% runtime cut'}]},
-  'stack k8s':{r:()=>[{c:'info',t:'── Kubernetes ──────────────────────'},{c:'out',t:'Platform : OpenShift CRC on Azure VMs'},{c:'out',t:'Operators: Spark Operator, Airflow'},{c:'out',t:'Network  : Policies, SCCs, resource quotas'},{c:'ok',t:'Result   : 99% job success · multi-tenant'}]},
-  'stack iceberg':{r:()=>[{c:'info',t:'── Apache Iceberg ──────────────────'},{c:'out',t:'Catalog  : Hive Metastore + Lakekeeper'},{c:'out',t:'Layers   : Bronze → Silver → Gold'},{c:'out',t:'Features : ACID, schema evolution, time travel'},{c:'ok',t:'Result   : 60% analytics latency reduction'}]},
+  easteregg:{r:()=>[{c:'warn',t:'🥚 Easter egg unlocked!'},{c:'ok',t:'SELECT * FROM prashant.superpowers LIMIT 5;'},{c:'info',t:''},{c:'out',t:'skill              | level  | note'},{c:'out',t:'───────────────────+────────+──────────────────'},{c:'ok',t:'Spark debugging    | 9999   | OOM whisperer'},{c:'ok',t:'K8s pod therapy    | 9980   | Scheduler healer'},{c:'ok',t:'Iceberg carving    | 9750   | Cold table sculptor'},{c:'ok',t:'Coffee → commits   | ∞      | Certified daily'},{c:'warn',t:'5 rows · 0.003s · via Trino on Gold layer'}]},
+  'stack spark':{r:()=>[{c:'info',t:'── Apache Spark ────────────────────'},{c:'out',t:'Version  : 3.5.0 with Spark Connect'},{c:'out',t:'Deploy   : Kubernetes Spark Operator'},{c:'out',t:'Tuned    : AQE, broadcast joins, shuffle'},{c:'ok',t:'Result   : 4× perf · 80% runtime cut'}]},
+  'stack k8s':{r:()=>[{c:'info',t:'── Kubernetes ──────────────────────'},{c:'out',t:'Platform : OpenShift CRC on Azure VMs'},{c:'out',t:'Network  : Policies, SCCs, resource quotas'},{c:'ok',t:'Result   : 99% job success · multi-tenant'}]},
+  'stack iceberg':{r:()=>[{c:'info',t:'── Apache Iceberg ──────────────────'},{c:'out',t:'Catalog  : Hive Metastore + Lakekeeper'},{c:'out',t:'Layers   : Bronze → Silver → Gold'},{c:'out',t:'Features : ACID · schema evolution · time travel'},{c:'ok',t:'Result   : 60% analytics latency reduction'}]},
 };
 function termPrint(lines){lines.forEach(l=>{const el=document.createElement('span');el.className='tl '+(l.c||'out');el.textContent=l.t;tout.appendChild(el)});tout.scrollTop=9999}
 tinput.addEventListener('keydown',e=>{
@@ -605,226 +539,345 @@ tinput.addEventListener('keydown',e=>{
   else if(e.key==='ArrowDown'){e.preventDefault();if(histIdx>0){histIdx--;tinput.value=termHistory[histIdx];}else{histIdx=-1;tinput.value='';}}
   else if(e.key==='Tab'){e.preventDefault();const v=tinput.value.toLowerCase();const m=allCmds.find(c=>c.startsWith(v)&&c!==v);if(m)tinput.value=m;}
 });
-document.querySelectorAll('.hint').forEach(h=>{
-  h.addEventListener('click',()=>{tinput.value=h.dataset.cmd;tinput.focus();});
-});
+document.querySelectorAll('.hint').forEach(h=>{h.addEventListener('click',()=>{tinput.value=h.dataset.cmd;tinput.focus()})});
 
-// ── GAME ──
+// ══════════════════════════════════════════════
+// GAME — fully fixed version
+// ══════════════════════════════════════════════
 const gc=document.getElementById('game'),gctx=gc.getContext('2d');
 const GW=gc.width,GH=gc.height;
-let gRun=false,gPause=false,gScore=0,gLives=3,gWave=1,gFr=0;
+
+// ── LEADERBOARD DATA (dynamic) ──
+const lbData=[
+  {name:'Prashant N.',score:2840,isYou:false},
+  {name:'DataEng_Pro',score:1920,isYou:false},
+  {name:'SparkMaster',score:1450,isYou:false},
+  {name:'YOU',score:0,isYou:true},
+];
+function renderLB(){
+  // Sort by score descending, stable (YOU always participates)
+  const sorted=[...lbData].sort((a,b)=>b.score-a.score);
+  const lb=document.getElementById('lb-list');
+  lb.innerHTML='';
+  sorted.forEach((entry,i)=>{
+    const row=document.createElement('div');
+    row.className='lb-entry'+(entry.isYou?' you':'');
+    const rank=i+1;
+    row.innerHTML=`<span class="lb-rank${rank<=3?' top':''}">#${rank}</span><span class="lb-name${entry.isYou?' you':''}">${entry.name}</span><span class="lb-score">${entry.score.toLocaleString()}</span>`;
+    lb.appendChild(row);
+  });
+}
+renderLB();
+
+// ── TIER CONFIG ──
+const TIERS=[
+  {min:0,   name:'BRONZE',  c:'#00edc2', emoji:'🥉'},
+  {min:300, name:'SILVER',  c:'#7c6ff7', emoji:'🥈'},
+  {min:700, name:'GOLD',    c:'#f5a623', emoji:'🥇'},
+  {min:1200,name:'PLATINUM',c:'#ff5e7a', emoji:'🏆'},
+];
+function getTier(s){
+  let t=TIERS[0];
+  for(const tier of TIERS){if(s>=tier.min)t=tier;}
+  return t;
+}
+
+// ── GAME STATE ──
+let gRun=false,gPause=false,gScore=0,gLives=3,gWave=1,gFr=0,gHiScore=0;
+let gPrevTierIdx=0;           // FIX 1: track previous tier index separately
+let gInvincible=0;            // FIX 4: invincibility frames after hit
+
 const ship={x:GW/2,y:GH-36,w:44,h:16,spd:5};
 let bullets=[],enemies=[],sparks=[];
 let keys={},touchLeft=false,touchRight=false,touchFire=false,fireCooldown=0;
-function getTier(s){if(s>=1200)return{t:'PLATINUM',c:'#ff5e7a'};if(s>=700)return{t:'GOLD',c:'#f5a623'};if(s>=300)return{t:'SILVER',c:'#7c6ff7'};return{t:'BRONZE',c:'#00edc2'}}
-function spawnWave(){
-  const types=[{l:'NULL',c:'#ff5e7a',pts:10},{l:'CORRUPT',c:'#ff3355',pts:15},{l:'SCHEMA?',c:'#7c6ff7',pts:20},{l:'DUPE',c:'#f5a623',pts:25}];
-  const n=4+Math.min(gWave*2,14);
-  for(let i=0;i<n;i++){const tp=types[Math.floor(Math.random()*types.length)];enemies.push({x:44+Math.random()*(GW-88),y:-28-i*36,w:52,h:20,vy:.7+Math.min(gWave*.18,.85)+Math.random()*.3,...tp,alive:true});}
-}
-function makeSparks(x,y,c){for(let i=0;i<7;i++){const a=Math.random()*Math.PI*2,s=2+Math.random()*2.5;sparks.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,c,a:1,sz:1.5+Math.random()})}}
-function updHUD(){
-  document.getElementById('g-score').textContent=gScore;
-  const l=Math.max(0,gLives);document.getElementById('g-lives').textContent='♦'.repeat(l)+'◇'.repeat(Math.max(0,3-l));
-  document.getElementById('g-wave').textContent=gWave;
-  const tier=getTier(gScore);const te=document.getElementById('g-tier');te.textContent=tier.t;te.style.color=tier.c;
-  document.getElementById('g-personal').textContent=gScore;
+
+// ── TIER BADGE — FIX 1: independent per-tier flags ──
+const tierShown={SILVER:false,GOLD:false,PLATINUM:false};
+function checkBadge(score){
   const bd=document.getElementById('g-badge');
-  if(gScore>=1200&&!bd.dataset.shown){bd.style.display='block';bd.textContent='🏆 PLATINUM — Production-scale lakehouse defender!';bd.dataset.shown='1'}
-  else if(gScore>=700&&!bd.dataset.shown){bd.style.display='block';bd.textContent='🥇 GOLD TIER — Analytics pipeline secured!';bd.dataset.shown='1'}
-  else if(gScore>=300&&!bd.dataset.shown){bd.style.display='block';bd.textContent='🥈 SILVER — Data quality champion!';bd.dataset.shown='1'}
+  // Check each tier independently — fixes the "only shows Silver" bug
+  const badgeCfg=[
+    {threshold:1200,tier:'PLATINUM',msg:'🏆 PLATINUM — Production-scale lakehouse defender!',c:'#ff5e7a',bc:'rgba(255,94,122,.08)'},
+    {threshold:700, tier:'GOLD',    msg:'🥇 GOLD TIER — Analytics pipeline secured!',       c:'#f5a623',bc:'rgba(245,166,35,.08)'},
+    {threshold:300, tier:'SILVER',  msg:'🥈 SILVER — Data quality champion!',               c:'#7c6ff7',bc:'rgba(124,111,247,.08)'},
+  ];
+  for(const cfg of badgeCfg){
+    if(score>=cfg.threshold&&!tierShown[cfg.tier]){
+      tierShown[cfg.tier]=true;
+      bd.style.display='block';
+      bd.style.borderColor=cfg.c;
+      bd.style.background=cfg.bc;
+      bd.style.color=cfg.c;
+      bd.textContent=cfg.msg;
+      break; // Show highest newly-unlocked tier first
+    }
+  }
 }
-function endGame(){
-  gRun=false;
-  setTimeout(()=>{
-    const tier=getTier(gScore);
-    gctx.fillStyle='rgba(4,7,17,.9)';gctx.fillRect(0,0,GW,GH);
-    gctx.font='bold 18px Space Mono,monospace';gctx.fillStyle=tier.c;gctx.textAlign='center';
-    gctx.fillText('PIPELINE BREACHED',GW/2,GH/2-40);
-    gctx.font='13px Space Mono,monospace';gctx.fillStyle='#dde3f7';
-    gctx.fillText('Score: '+gScore+'  ·  Tier: '+tier.t,GW/2,GH/2-10);
-    gctx.fillText('Wave '+gWave+' survived',GW/2,GH/2+15);
-    gctx.font='10px Space Mono,monospace';gctx.fillStyle='#5a6b99';
-    gctx.fillText('Press Start Pipeline to retry',GW/2,GH/2+44);
-  },80);
+
+// ── TIER UPGRADE ANNOUNCE — FIX 2: on-canvas overlay ──
+function announceTier(tier){
+  const el=document.getElementById('tier-announce');
+  el.textContent=tier.emoji+' '+tier.name+' TIER UNLOCKED';
+  el.style.color=tier.c;
+  el.style.textShadow=`0 0 20px ${tier.c}`;
+  el.style.opacity='1';
+  el.style.transition='none';
+  setTimeout(()=>{el.style.transition='opacity 1s ease';el.style.opacity='0';},1800);
+  // Also animate HUD tier label
+  const te=document.getElementById('g-tier');
+  te.classList.remove('tier-flash');
+  void te.offsetWidth; // reflow to restart animation
+  te.classList.add('tier-flash');
 }
+
+// ── HUD UPDATE — FIX 3: leaderboard re-sorts dynamically ──
+function updHUD(){
+  document.getElementById('g-score').textContent=gScore.toLocaleString();
+  const l=Math.max(0,gLives);
+  document.getElementById('g-lives').textContent='♦'.repeat(l)+'◇'.repeat(Math.max(0,3-l));
+  document.getElementById('g-wave').textContent=gWave;
+  document.getElementById('g-hi').textContent=gHiScore.toLocaleString();
+
+  const tier=getTier(gScore);
+  const te=document.getElementById('g-tier');
+  te.textContent=tier.name;
+  te.style.color=tier.c;
+
+  // Check tier upgrade
+  const newTierIdx=TIERS.indexOf(tier);
+  if(newTierIdx>gPrevTierIdx){
+    announceTier(tier);
+    gPrevTierIdx=newTierIdx;
+  }
+
+  // Update hi score
+  if(gScore>gHiScore){gHiScore=gScore;document.getElementById('g-hi').textContent=gHiScore.toLocaleString();}
+
+  // FIX 3: update YOU entry in leaderboard and re-render
+  const youEntry=lbData.find(e=>e.isYou);
+  if(youEntry)youEntry.score=gScore;
+  renderLB();
+
+  // FIX 1: check badges independently
+  checkBadge(gScore);
+}
+
+function spawnWave(){
+  const types=[
+    {l:'NULL',   c:'#ff5e7a',pts:10},
+    {l:'CORRUPT',c:'#ff3355',pts:15},
+    {l:'SCHEMA?',c:'#7c6ff7',pts:20},
+    {l:'DUPE',   c:'#f5a623',pts:25},
+  ];
+  const n=4+Math.min(gWave*2,14);
+  for(let i=0;i<n;i++){
+    const tp=types[Math.floor(Math.random()*types.length)];
+    enemies.push({x:44+Math.random()*(GW-88),y:-28-i*38,w:52,h:20,vy:.7+Math.min(gWave*.18,.85)+Math.random()*.3,...tp,alive:true});
+  }
+}
+
+function makeSparks(x,y,c){
+  for(let i=0;i<8;i++){const a=Math.random()*Math.PI*2,s=2+Math.random()*3;sparks.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,c,a:1,sz:1.5+Math.random()*1.5})}
+}
+
 function gUpdate(){
   if(!gRun||gPause)return;
-  gFr++;fireCooldown=Math.max(0,fireCooldown-1);
+  gFr++;
+  fireCooldown=Math.max(0,fireCooldown-1);
+  if(gInvincible>0)gInvincible--;          // FIX 4: tick down invincibility
+
+  // Move ship
   if((keys['ArrowLeft']||keys['a']||touchLeft)&&ship.x>ship.w/2)ship.x-=ship.spd;
   if((keys['ArrowRight']||keys['d']||touchRight)&&ship.x<GW-ship.w/2)ship.x+=ship.spd;
-  if((touchFire||keys[' '])&&fireCooldown===0){const tier=getTier(gScore);bullets.push({x:ship.x,y:ship.y-ship.h,c:tier.c});fireCooldown=9;}
+
+  // Fire — FIX 5: touchFire only fires once per press (handled by cooldown)
+  if((keys[' ']||keys['Enter']||touchFire)&&fireCooldown===0){
+    const tier=getTier(gScore);
+    bullets.push({x:ship.x,y:ship.y-ship.h,c:tier.c});
+    fireCooldown=9;
+  }
+
   bullets=bullets.filter(b=>{b.y-=11;return b.y>-10});
+
   enemies.forEach(e=>{
     if(!e.alive)return;
     e.y+=e.vy;
-    if(e.y>GH+10){e.alive=false;gLives--;if(gLives<=0){endGame();return;}updHUD();}
-    bullets.forEach((b,bi)=>{if(b.x>e.x-e.w/2&&b.x<e.x+e.w/2&&b.y>e.y-e.h/2&&b.y<e.y+e.h/2){e.alive=false;bullets.splice(bi,1);gScore+=e.pts*Math.max(1,gWave);makeSparks(e.x,e.y,e.c);updHUD();}});
+    // Enemy reaches bottom — only damage if not invincible (FIX 4)
+    if(e.y>GH+10){
+      e.alive=false;
+      if(gInvincible===0){
+        gLives--;
+        gInvincible=90; // ~1.5s at 60fps
+        makeSparks(ship.x,ship.y,'#ff5e7a');
+        if(gLives<=0){endGame();return;}
+        updHUD();
+      }
+    }
+    // Bullet collision
+    bullets.forEach((b,bi)=>{
+      if(b.x>e.x-e.w/2&&b.x<e.x+e.w/2&&b.y>e.y-e.h/2&&b.y<e.y+e.h/2){
+        e.alive=false;
+        bullets.splice(bi,1);
+        gScore+=e.pts*Math.max(1,gWave);
+        makeSparks(e.x,e.y,e.c);
+        updHUD();
+      }
+    });
   });
+
   if(enemies.length&&enemies.every(e=>!e.alive)){gWave++;spawnWave();updHUD();}
-  sparks=sparks.filter(p=>{p.x+=p.vx;p.y+=p.vy;p.a-=.042;return p.a>0});
+  sparks=sparks.filter(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.08;p.a-=.038;return p.a>0});
 }
+
 function gDraw(){
   requestAnimationFrame(gDraw);
   gctx.fillStyle='#040711';gctx.fillRect(0,0,GW,GH);
   gctx.strokeStyle='rgba(0,237,194,.035)';gctx.lineWidth=1;
   for(let x=0;x<GW;x+=40){gctx.beginPath();gctx.moveTo(x,0);gctx.lineTo(x,GH);gctx.stroke()}
   for(let y=0;y<GH;y+=40){gctx.beginPath();gctx.moveTo(0,y);gctx.lineTo(GW,y);gctx.stroke()}
+
   if(!gRun){
-    gctx.fillStyle='#00edc212';gctx.fillRect(0,0,GW,GH);
+    gctx.fillStyle='#00edc210';gctx.fillRect(0,0,GW,GH);
     gctx.font='bold 17px Space Mono,monospace';gctx.fillStyle='#00edc2';gctx.textAlign='center';
-    gctx.fillText('DATA PIPELINE DEFENDER',GW/2,GH/2-14);
+    gctx.fillText('DATA PIPELINE DEFENDER',GW/2,GH/2-22);
     gctx.font='10px Space Mono,monospace';gctx.fillStyle='#5a6b99';
-    gctx.fillText('Press Start Pipeline to begin',GW/2,GH/2+12);return;
+    gctx.fillText('Protect the Bronze Layer from corrupt data',GW/2,GH/2+2);
+    gctx.fillText('Press Start Pipeline or Enter',GW/2,GH/2+20);
+    return;
   }
-  if(gPause){gctx.font='bold 16px Space Mono,monospace';gctx.fillStyle='#f5a623';gctx.textAlign='center';gctx.fillText('PIPELINE PAUSED',GW/2,GH/2);return;}
+  if(gPause){
+    gctx.fillStyle='rgba(4,7,17,.6)';gctx.fillRect(0,0,GW,GH);
+    gctx.font='bold 16px Space Mono,monospace';gctx.fillStyle='#f5a623';gctx.textAlign='center';
+    gctx.fillText('⏸ PIPELINE PAUSED',GW/2,GH/2-8);
+    gctx.font='10px Space Mono,monospace';gctx.fillStyle='#5a6b99';
+    gctx.fillText('Press Pause to resume',GW/2,GH/2+14);
+    return;
+  }
   gUpdate();
+
+  // Bronze boundary
   gctx.strokeStyle='rgba(0,237,194,.1)';gctx.lineWidth=1;gctx.setLineDash([4,4]);
   gctx.beginPath();gctx.moveTo(0,GH-52);gctx.lineTo(GW,GH-52);gctx.stroke();gctx.setLineDash([]);
-  gctx.font='7px Space Mono,monospace';gctx.fillStyle='rgba(0,237,194,.25)';gctx.textAlign='left';gctx.fillText('BRONZE LAYER BOUNDARY',6,GH-56);
+  gctx.font='7px Space Mono,monospace';gctx.fillStyle='rgba(0,237,194,.22)';gctx.textAlign='left';
+  gctx.fillText('BRONZE LAYER BOUNDARY',6,GH-56);
+
+  // Ship — FIX 4: flash when invincible
   const tier=getTier(gScore);
-  gctx.shadowColor=tier.c;gctx.shadowBlur=10;gctx.fillStyle=tier.c;
-  const px=ship.x,py=ship.y;
-  gctx.beginPath();gctx.moveTo(px,py-ship.h);gctx.lineTo(px-ship.w/2,py+ship.h/2);gctx.lineTo(px-11,py);gctx.lineTo(px,py+8);gctx.lineTo(px+11,py);gctx.lineTo(px+ship.w/2,py+ship.h/2);gctx.closePath();gctx.fill();
-  gctx.shadowBlur=0;gctx.fillStyle='rgba(0,237,194,.35)';gctx.fillRect(px-3,py+8,6,4);
+  const shipVisible=gInvincible===0||Math.floor(gFr/5)%2===0; // blink when hit
+  if(shipVisible){
+    gctx.shadowColor=gInvincible>0?'#ff5e7a':tier.c;
+    gctx.shadowBlur=gInvincible>0?20:10;
+    gctx.fillStyle=gInvincible>0?'#ff5e7a':tier.c;
+    const px=ship.x,py=ship.y;
+    gctx.beginPath();gctx.moveTo(px,py-ship.h);gctx.lineTo(px-ship.w/2,py+ship.h/2);gctx.lineTo(px-11,py);gctx.lineTo(px,py+8);gctx.lineTo(px+11,py);gctx.lineTo(px+ship.w/2,py+ship.h/2);gctx.closePath();gctx.fill();
+    gctx.shadowBlur=0;
+    // Engine glow
+    if(gFr%4<2){gctx.fillStyle='rgba(0,237,194,.5)';gctx.fillRect(px-3,py+8,6,4);}
+  }
+
+  // Bullets
   bullets.forEach(b=>{gctx.shadowColor=b.c;gctx.shadowBlur=7;gctx.fillStyle=b.c;gctx.fillRect(b.x-2,b.y-6,4,11);gctx.shadowBlur=0});
+
+  // Enemies
   enemies.filter(e=>e.alive).forEach(e=>{
     gctx.shadowColor=e.c;gctx.shadowBlur=7;gctx.fillStyle=e.c+'22';gctx.strokeStyle=e.c+'70';gctx.lineWidth=1;
     rrect(gctx,e.x-e.w/2,e.y-e.h/2,e.w,e.h,3);gctx.fill();gctx.stroke();gctx.shadowBlur=0;
     gctx.font='bold 8px Space Mono,monospace';gctx.fillStyle=e.c;gctx.textAlign='center';gctx.fillText(e.l,e.x,e.y-1);
-    gctx.font='6px Space Mono,monospace';gctx.fillStyle='rgba(255,255,255,.4)';gctx.fillText('+'+e.pts,e.x,e.y+9);
+    gctx.font='6px Space Mono,monospace';gctx.fillStyle='rgba(255,255,255,.4)';gctx.fillText('+'+e.pts+'×'+gWave,e.x,e.y+9);
   });
+
+  // Sparks (with gravity)
   sparks.forEach(p=>{gctx.globalAlpha=p.a;gctx.fillStyle=p.c;gctx.beginPath();gctx.arc(p.x,p.y,p.sz,0,Math.PI*2);gctx.fill()});
   gctx.globalAlpha=1;gctx.textAlign='left';
 }
 gDraw();
-document.addEventListener('keydown',e=>{keys[e.key]=true;if(e.key===' '&&gRun&&!gPause&&document.activeElement===gc)e.preventDefault()});
+
+function endGame(){
+  gRun=false;
+  if(gScore>gHiScore)gHiScore=gScore;
+  const youEntry=lbData.find(e=>e.isYou);
+  if(youEntry)youEntry.score=gScore;
+  renderLB();
+  setTimeout(()=>{
+    const tier=getTier(gScore);
+    gctx.fillStyle='rgba(4,7,17,.92)';gctx.fillRect(0,0,GW,GH);
+    gctx.font='bold 18px Space Mono,monospace';gctx.fillStyle=tier.c;gctx.textAlign='center';
+    gctx.fillText('PIPELINE BREACHED',GW/2,GH/2-48);
+    gctx.font='13px Space Mono,monospace';gctx.fillStyle='#dde3f7';
+    gctx.fillText('Score: '+gScore.toLocaleString()+'  ·  Tier: '+tier.name,GW/2,GH/2-18);
+    gctx.fillText('Wave '+gWave+' survived',GW/2,GH/2+8);
+    gctx.font='11px Space Mono,monospace';gctx.fillStyle=tier.c;
+    gctx.fillText(tier.emoji+' '+tier.name+' ENGINEER',GW/2,GH/2+34);
+    gctx.font='10px Space Mono,monospace';gctx.fillStyle='#5a6b99';
+    gctx.fillText('Press Start Pipeline to retry',GW/2,GH/2+58);
+  },100);
+}
+
+// ── KEYBOARD ──
+document.addEventListener('keydown',e=>{
+  keys[e.key]=true;
+  if(e.key===' '&&gRun&&!gPause&&document.activeElement===gc)e.preventDefault();
+  // Enter to start game when canvas focused
+  if(e.key==='Enter'&&document.activeElement===gc&&!gRun){startGame();}
+});
 document.addEventListener('keyup',e=>{keys[e.key]=false});
+
+// ── MOBILE TOUCH ──
 const mcL=document.getElementById('mc-left'),mcR=document.getElementById('mc-right'),mcF=document.getElementById('mc-fire');
-mcL.addEventListener('touchstart',e=>{e.preventDefault();touchLeft=true},{passive:false});mcL.addEventListener('touchend',()=>touchLeft=false);
-mcR.addEventListener('touchstart',e=>{e.preventDefault();touchRight=true},{passive:false});mcR.addEventListener('touchend',()=>touchRight=false);
-mcF.addEventListener('touchstart',e=>{e.preventDefault();touchFire=true},{passive:false});mcF.addEventListener('touchend',()=>touchFire=false);
-mcF.addEventListener('click',()=>{if(gRun&&!gPause){const tier=getTier(gScore);bullets.push({x:ship.x,y:ship.y-ship.h,c:tier.c})}});
-function resetGame(){gRun=false;gPause=false;gScore=0;gLives=3;gWave=1;gFr=0;bullets=[];enemies=[];sparks=[];const bd=document.getElementById('g-badge');bd.style.display='none';delete bd.dataset.shown;updHUD()}
-document.getElementById('g-start').addEventListener('click',()=>{if(!gRun){resetGame();spawnWave();}gRun=true;gPause=false;gc.focus()});
+mcL.addEventListener('touchstart',e=>{e.preventDefault();touchLeft=true},{passive:false});
+mcL.addEventListener('touchend',()=>touchLeft=false);
+mcR.addEventListener('touchstart',e=>{e.preventDefault();touchRight=true},{passive:false});
+mcR.addEventListener('touchend',()=>touchRight=false);
+// FIX 5: fire on touchstart, release on touchend — cooldown prevents spam
+mcF.addEventListener('touchstart',e=>{e.preventDefault();touchFire=true},{passive:false});
+mcF.addEventListener('touchend',()=>{touchFire=false});
+mcF.addEventListener('click',()=>{if(gRun&&!gPause&&fireCooldown===0){const tier=getTier(gScore);bullets.push({x:ship.x,y:ship.y-ship.h,c:tier.c});fireCooldown=9;}});
+
+function resetGame(){
+  gRun=false;gPause=false;gScore=0;gLives=3;gWave=1;gFr=0;gPrevTierIdx=0;gInvincible=0;
+  bullets=[];enemies=[];sparks=[];fireCooldown=0;
+  // Reset tier badges
+  Object.keys(tierShown).forEach(k=>tierShown[k]=false);
+  const bd=document.getElementById('g-badge');bd.style.display='none';
+  const ann=document.getElementById('tier-announce');ann.style.opacity='0';
+  const youEntry=lbData.find(e=>e.isYou);if(youEntry)youEntry.score=0;
+  updHUD();
+}
+function startGame(){
+  resetGame();
+  gRun=true;
+  spawnWave();
+  updHUD();
+  gc.focus();
+}
+document.getElementById('g-start').addEventListener('click',startGame);
 document.getElementById('g-pause').addEventListener('click',()=>{if(gRun)gPause=!gPause});
 document.getElementById('g-reset').addEventListener('click',resetGame);
 
-// ── RESUME — opens HTML resume in new tab (print to PDF) ──
+// ── COPY EMAIL ──
+window.copyText=function(e,text,btnId){
+  e.preventDefault();e.stopPropagation();
+  navigator.clipboard.writeText(text).then(()=>{
+    const btn=document.getElementById(btnId);
+    if(btn){btn.textContent='copied!';btn.classList.add('copied');setTimeout(()=>{btn.textContent='copy';btn.classList.remove('copied')},2000);}
+  }).catch(()=>{});
+};
+
+// ── RESUME ──
 function triggerResume(){
-  const html=`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Prashant Nepal — Resume</title><style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI',Arial,sans-serif;font-size:11pt;line-height:1.5;color:#111;max-width:780px;margin:2rem auto;padding:0 2rem}
-h1{font-size:22pt;font-weight:700;letter-spacing:-.5px;margin-bottom:2px}
-.sub{font-size:10pt;color:#555;margin-bottom:10px}
-.contact-row{font-size:9.5pt;color:#333;margin-bottom:18px;display:flex;flex-wrap:wrap;gap:8px 20px}
-.contact-row span::before{content:'· ';color:#aaa}
-.contact-row span:first-child::before{content:''}
-h2{font-size:11pt;font-weight:700;text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid #111;padding-bottom:3px;margin:18px 0 8px}
-.role{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;margin-bottom:4px}
-.role-title{font-weight:700;font-size:11pt}
-.role-co{font-style:italic;font-size:10pt;color:#333}
-.role-date{font-size:9.5pt;color:#555}
-ul{padding-left:16px;margin-bottom:10px}
-li{margin-bottom:3px;font-size:10.5pt}
-li b{font-weight:600}
-.skills-grid{display:grid;grid-template-columns:130px 1fr;gap:4px 12px;font-size:10.5pt}
-.skills-grid dt{font-weight:600;color:#333}
-.skills-grid dd{color:#111}
-.awards li{list-style:none;padding-left:0}
-@media print{body{margin:1rem auto}h2{break-after:avoid}ul{break-inside:avoid}}
-</style></head><body>
-<h1>PRASHANT NEPAL</h1>
-<div class="sub">Data Engineer · Platform Architect · Spark Optimization Specialist</div>
-<div class="contact-row">
-  <span>Kathmandu, Nepal (UTC+5:45)</span>
-  <span>+977 982 432 1005</span>
-  <span>404.nepal.prashant@gmail.com</span>
-  <span>linkedin.com/in/nepalprashant</span>
-  <span>github.com/nepalprashant</span>
-</div>
-<h2>Professional Summary</h2>
-<p style="font-size:10.5pt;margin-bottom:10px">Data Engineer specializing in high-performance Spark optimization and cloud-native data platforms. Proven track record reducing pipeline runtimes by 80%, architecting terabyte-scale ETL systems on Kubernetes/OpenShift, and driving data quality across distributed environments. Expert in lakehouse patterns with Iceberg and delivering measurable infrastructure improvements at telecom scale.</p>
-<h2>Technical Skills</h2>
-<dl class="skills-grid">
-  <dt>Big Data</dt><dd>Apache Spark (Performance Tuning, Connect), Kafka, NiFi, Airflow, DBT, Iceberg, Trino, Superset</dd>
-  <dt>Cloud & Orchestration</dt><dd>Kubernetes, OpenShift (CRC), Docker, Helm, Spark Operator, Azure (VMs, Networking), RHODS</dd>
-  <dt>Storage & Lakes</dt><dd>ODF (Ceph), MinIO/S3, Hive Metastore, Lakekeeper, Parquet, ORC, Avro, Lakehouse Architecture</dd>
-  <dt>Programming</dt><dd>Python, SQL, Java, Bash, PySpark</dd>
-  <dt>Databases</dt><dd>Oracle, PostgreSQL, MySQL, Hive, StarRocks, Doris</dd>
-  <dt>DevOps & Tools</dt><dd>Git, GitHub/GitLab, CI/CD, REST APIs, Linux (CentOS), Network Policies, YAML</dd>
-</dl>
-<h2>Professional Experience</h2>
-<div class="role"><span class="role-title">Data Engineer — Data Platform &amp; ETL</span><span class="role-date">Feb 2025 – Present</span></div>
-<div class="role-co">DLytica Inc. · Client: Ooredoo · Kathmandu, Nepal</div>
-<ul style="margin-top:6px">
-  <li><b>4× Spark performance:</b> tuned partitioning, broadcast joins, shuffle configs, executor memory. TB-scale runtimes from hours to minutes.</li>
-  <li><b>Spark Connect on OpenShift:</b> centralized compute for 15+ developers, eliminating local cluster dependencies. 70% faster onboarding.</li>
-  <li><b>DBT + Spark Connect:</b> SQL-first transformations with version-controlled, testable data models across the org.</li>
-  <li><b>Enterprise K8s platform:</b> Spark Operator deployments, SCCs, network policies, resource quotas for multi-tenant isolation.</li>
-  <li><b>Azure + OpenShift CRC:</b> provisioned CentOS VMs with firewall rules and network policies for secure local K8s dev.</li>
-  <li><b>3TB+ daily ingestion:</b> NiFi + Kafka from SFTP, Oracle CDC, REST APIs at 95% reliability.</li>
-  <li><b>Oracle → Iceberg lakehouse:</b> bronze-silver-gold medallion with ACID guarantees; 60% analytics latency reduction.</li>
-  <li><b>Incident resolution:</b> OOMKilled Spark drivers, shuffle fetch failures, NiFi backpressure, OpenShift pod scheduling.</li>
-  <li><b>Data quality:</b> automated reconciliation and validation frameworks reducing downstream errors by 85%.</li>
-</ul>
-<div class="role"><span class="role-title">Tutor Assistant — Data Engineering &amp; Cloud</span><span class="role-date">Feb 2025 – Present</span></div>
-<div class="role-co">DLytica Academy · Kathmandu, Nepal</div>
-<ul style="margin-top:6px">
-  <li>Mentored 10+ Data Engineering Fellows on Spark, K8s, DBT, Airflow, and Iceberg.</li>
-  <li>Designed hands-on training modules covering CI/CD, Git, and production data engineering patterns.</li>
-</ul>
-<div class="role"><span class="role-title">Junior Software Engineer</span><span class="role-date">Feb 2023 – Jan 2024</span></div>
-<div class="role-co">Offer Sewa Pvt. Ltd. · Kathmandu, Nepal</div>
-<ul style="margin-top:6px">
-  <li>Built REST APIs in Laravel and Python; 40% response time reduction via indexing and query rewriting.</li>
-  <li>Contributed to Agile product cycles with scalable backend for high-concurrency workloads.</li>
-</ul>
-<div class="role"><span class="role-title">Software Developer Intern</span><span class="role-date">Aug 2021 – Jan 2022</span></div>
-<div class="role-co">BlueFox Pvt. Ltd. · Itahari, Nepal</div>
-<ul style="margin-top:6px">
-  <li>Built full-stack mobile app using Flutter + Laravel with auth, REST APIs, and real-time sync.</li>
-</ul>
-<h2>Key Impact Numbers</h2>
-<ul>
-  <li><b>80%</b> pipeline runtime reduction at terabyte scale</li>
-  <li><b>4×</b> Spark performance gain via executor and query tuning</li>
-  <li><b>99%</b> job success rate on Kubernetes Spark Operator</li>
-  <li><b>85%</b> downstream error reduction via automated data quality</li>
-  <li><b>3×</b> read throughput improvement (Parquet block + partition tuning)</li>
-  <li><b>70%</b> faster developer onboarding via Spark Connect</li>
-</ul>
-<h2>Education</h2>
-<div class="role"><span class="role-title">BSc (Hons) Computing — Graduated with Distinction (82.56%)</span><span class="role-date">2019–2022</span></div>
-<div class="role-co">Itahari International College, Nepal</div>
-<h2>Awards &amp; Recognition</h2>
-<ul class="awards">
-  <li>🏆 FYP Showcase Winner — IIC Industrial Fair 2022 (Best Final Year Project)</li>
-  <li>🏅 Commended at DLytica for Spark performance breakthroughs and ETL stabilization</li>
-  <li>📜 LinkedIn Learning: Data Structures &amp; Algorithms · Git Essential Training · AI Foundations</li>
-</ul>
-<div style="margin-top:24px;font-size:9pt;color:#aaa;text-align:center">Open to data engineering roles globally · Available immediately</div>
-</body></html>`;
-  const w=window.open('','_blank');
-  if(w){w.document.write(html);w.document.close();}
+  const html=`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Prashant Nepal — Resume</title><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',Arial,sans-serif;font-size:11pt;line-height:1.5;color:#111;max-width:780px;margin:2rem auto;padding:0 2rem}h1{font-size:22pt;font-weight:700;margin-bottom:2px}.sub{font-size:10pt;color:#555;margin-bottom:10px}.cr{font-size:9.5pt;color:#333;margin-bottom:18px;display:flex;flex-wrap:wrap;gap:8px 20px}.cr span::before{content:'· ';color:#aaa}.cr span:first-child::before{content:''}h2{font-size:11pt;font-weight:700;text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid #111;padding-bottom:3px;margin:18px 0 8px}.role{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;margin-bottom:4px}.rt{font-weight:700;font-size:11pt}.rc{font-style:italic;font-size:10pt;color:#333}.rd{font-size:9.5pt;color:#555}ul{padding-left:16px;margin-bottom:10px}li{margin-bottom:3px;font-size:10.5pt}li b{font-weight:600}.sg{display:grid;grid-template-columns:130px 1fr;gap:4px 12px;font-size:10.5pt}.sg dt{font-weight:600;color:#333}@media print{body{margin:1rem auto}h2{break-after:avoid}ul{break-inside:avoid}}</style></head><body><h1>PRASHANT NEPAL</h1><div class="sub">Data Engineer · Platform Architect · Spark Optimization Specialist</div><div class="cr"><span>Kathmandu, Nepal (UTC+5:45)</span><span>+977 982 432 1005</span><span>404.nepal.prashant@gmail.com</span><span>linkedin.com/in/nepalprashant</span><span>github.com/nepalprashant</span></div><h2>Professional Summary</h2><p style="font-size:10.5pt;margin-bottom:10px">Data Engineer specializing in high-performance Spark optimization and cloud-native data platforms. Proven track record reducing pipeline runtimes by 80%, architecting terabyte-scale ETL systems on Kubernetes/OpenShift, and driving data quality across distributed environments.</p><h2>Technical Skills</h2><dl class="sg"><dt>Big Data</dt><dd>Apache Spark (Tuning, Connect), Kafka, NiFi, Airflow, DBT, Iceberg, Trino, Superset</dd><dt>Cloud & Orchestration</dt><dd>Kubernetes, OpenShift (CRC), Docker, Helm, Spark Operator, Azure, RHODS</dd><dt>Storage & Lakes</dt><dd>ODF/Ceph, MinIO/S3, Hive Metastore, Lakekeeper, Parquet, ORC, Avro</dd><dt>Programming</dt><dd>Python, SQL, Java, Bash, PySpark</dd><dt>Databases</dt><dd>Oracle, PostgreSQL, MySQL, Hive, StarRocks, Doris</dd><dt>DevOps</dt><dd>Git, GitHub/GitLab, CI/CD, REST APIs, Linux (CentOS), Network Policies</dd></dl><h2>Professional Experience</h2><div class="role"><span class="rt">Data Engineer — Data Platform &amp; ETL</span><span class="rd">Feb 2025 – Present</span></div><div class="rc">DLytica Inc. · Client: Ooredoo · Kathmandu, Nepal</div><ul style="margin-top:6px"><li><b>4× Spark performance:</b> partitioning, broadcast joins, shuffle configs. TB runtimes from hours to minutes.</li><li><b>Spark Connect on OpenShift:</b> centralized compute for 15+ devs. 70% faster onboarding.</li><li><b>Oracle → Iceberg lakehouse:</b> bronze-silver-gold medallion, ACID guarantees, 60% latency reduction.</li><li><b>3TB+ daily ingestion:</b> NiFi + Kafka from SFTP, Oracle CDC, REST APIs at 95% reliability.</li><li><b>Data quality:</b> automated reconciliation frameworks reducing downstream errors by 85%.</li><li><b>K8s platform:</b> Spark Operator, SCCs, network policies, resource quotas for multi-tenant isolation.</li></ul><div class="role"><span class="rt">Tutor — Data Engineering &amp; Cloud</span><span class="rd">Feb 2025 – Present</span></div><div class="rc">DLytica Academy · Kathmandu, Nepal</div><ul style="margin-top:6px"><li>Mentored 10+ Fellows on Spark, K8s, DBT, Airflow, Iceberg.</li></ul><div class="role"><span class="rt">Junior Software Engineer</span><span class="rd">Feb 2023 – Jan 2024</span></div><div class="rc">Offer Sewa Pvt. Ltd.</div><ul style="margin-top:6px"><li>REST APIs in Laravel/Python — 40% response time reduction via query indexing.</li></ul><div class="role"><span class="rt">Software Developer Intern</span><span class="rd">Aug 2021 – Jan 2022</span></div><div class="rc">BlueFox Pvt. Ltd.</div><ul style="margin-top:6px"><li>Flutter + Laravel mobile app with auth, REST APIs, real-time sync.</li></ul><h2>Education</h2><div class="role"><span class="rt">BSc (Hons) Computing — Distinction (82.56%)</span><span class="rd">2019–2022</span></div><div class="rc">Itahari International College, Nepal</div><h2>Awards</h2><ul><li>🏆 FYP Showcase Winner — IIC Industrial Fair 2022 (Best Final Year Project)</li><li>🏅 Commended at DLytica for Spark performance breakthroughs and ETL stabilization</li></ul><div style="margin-top:24px;font-size:9pt;color:#aaa;text-align:center">Print this page (Ctrl+P) to save as PDF · Open to Data Engineering roles globally</div></body></html>`;
+  const w=window.open('','_blank');if(w){w.document.write(html);w.document.close();}
 }
-['dl-nav','dl-hero','dl-resume-btn'].forEach(id=>{
-  const el=document.getElementById(id);
-  if(el)el.addEventListener('click',e=>{e.preventDefault();triggerResume()});
-});
+['dl-nav','dl-hero','dl-resume-btn'].forEach(id=>{const el=document.getElementById(id);if(el)el.addEventListener('click',e=>{e.preventDefault();triggerResume()})});
 
 // ── ACTIVE NAV ──
 const navLinks2=document.querySelectorAll('.nav-links a');
 const sectionIds=['hero','pipeline','stack','experience','impact','terminal-sec','game-sec','contact'];
-const navObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){navLinks2.forEach(a=>{a.classList.remove('active');if(a.getAttribute('href')==='#'+e.target.id)a.classList.add('active')})}});
-},{threshold:.3});
+const navObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){navLinks2.forEach(a=>{a.classList.remove('active');if(a.getAttribute('href')==='#'+e.target.id)a.classList.add('active')})}})},{threshold:.3});
 sectionIds.forEach(id=>{const el=document.getElementById(id);if(el)navObs.observe(el)});
 
 // ── REVEAL ──
-const revObs=new IntersectionObserver(entries=>{
-  entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('in'),i*50)});
-},{threshold:.07,rootMargin:'0px 0px -28px 0px'});
+const revObs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('in'),i*50)});},{threshold:.07,rootMargin:'0px 0px -28px 0px'});
 document.querySelectorAll('.rev').forEach(el=>revObs.observe(el));
 
 // ── 3D TILT ──
