@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -14,11 +14,11 @@
   gtag('config', 'G-ZFETN05RWZ');
 </script>
 <title>Prashant Nepal — Data Engineer</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#040711;--s1:#080e20;--s2:#0c1530;--a:#00edc2;--a2:#7c6ff7;--a3:#ff5e7a;--a4:#f5a623;--t:#dde3f7;--m:#5a6b99}
-html{scroll-behavior:smooth}
+:root{--bg:#040711;--s1:#080e20;--s2:#0c1530;--a:#00edc2;--a2:#7c6ff7;--a3:#ff5e7a;--a4:#f5a623;--t:#dde3f7;--m:#5a6b99;--green:#22c55e}
+html{scroll-behavior:auto}
 body{background:var(--bg);color:var(--t);font-family:'Outfit',sans-serif,system-ui;overflow-x:hidden}
 @media(pointer:fine){body{cursor:none}}
 #cur,#cur-r{pointer-events:none;z-index:9999;position:fixed;top:0;left:0}
@@ -35,104 +35,106 @@ button{appearance:none;-webkit-appearance:none;background:transparent;border:non
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 clamp(1rem,4vw,3.5rem);height:64px;display:flex;align-items:center;justify-content:space-between;gap:1rem;background:rgba(4,7,17,.78);backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,237,194,.07)}
 .logo-wrap{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0}
-.logo-txt{font-family:'Space Mono',monospace;font-size:.7rem;color:var(--a);letter-spacing:.16em;line-height:1.3}
+.logo-txt{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--a);letter-spacing:.16em;line-height:1.3}
 .logo-sub{color:var(--m);font-size:.52rem;letter-spacing:.12em}
 .nav-links{display:flex;gap:1.4rem;list-style:none}
-.nav-links a{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--m);text-decoration:none;padding:.25rem 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+.nav-links a{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--m);text-decoration:none;padding:.25rem 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
 .nav-links a:hover,.nav-links a.active{color:var(--a);border-bottom-color:var(--a)}
 .nav-right{display:flex;gap:.75rem;align-items:center;flex-shrink:0}
 @media(max-width:768px){.nav-links{display:none}.logo-sub{display:none}}
-.btn-primary{display:inline-flex;align-items:center;gap:.4rem;font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.07em;font-weight:700;padding:.7rem 1.6rem;background:var(--a);color:#000;border:2px solid var(--a);text-decoration:none;white-space:nowrap;transition:all .22s;cursor:pointer}
+.btn-primary{display:inline-flex;align-items:center;gap:.4rem;font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.07em;font-weight:700;padding:.7rem 1.6rem;background:var(--a);color:#000;border:2px solid var(--a);text-decoration:none;white-space:nowrap;transition:all .22s;cursor:pointer}
 .btn-primary:hover{background:#fff;border-color:#fff;transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--a)}
-.btn-outline{display:inline-flex;align-items:center;gap:.4rem;font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.07em;font-weight:400;padding:.7rem 1.6rem;background:transparent;color:var(--t);border:1px solid rgba(221,227,247,.25);text-decoration:none;white-space:nowrap;transition:all .22s;cursor:pointer}
+.btn-outline{display:inline-flex;align-items:center;gap:.4rem;font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.07em;font-weight:400;padding:.7rem 1.6rem;background:transparent;color:var(--t);border:1px solid rgba(221,227,247,.25);text-decoration:none;white-space:nowrap;transition:all .22s;cursor:pointer}
 .btn-outline:hover{border-color:var(--a);color:var(--a);transform:translate(-2px,-2px)}
-.btn-teal-sm{display:inline-flex;align-items:center;gap:.35rem;font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.07em;font-weight:700;padding:.48rem 1rem;background:var(--a);color:#000;border:2px solid var(--a);text-decoration:none;white-space:nowrap;transition:all .2s;cursor:pointer}
+.btn-teal-sm{display:inline-flex;align-items:center;gap:.35rem;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.07em;font-weight:700;padding:.48rem 1rem;background:var(--a);color:#000;border:2px solid var(--a);text-decoration:none;white-space:nowrap;transition:all .2s;cursor:pointer}
 .btn-teal-sm:hover{background:#fff;border-color:#fff}
-.btn-ghost-sm{display:inline-flex;align-items:center;gap:.35rem;font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.07em;font-weight:400;padding:.48rem 1rem;background:transparent;color:var(--a);border:1px solid var(--a);text-decoration:none;white-space:nowrap;transition:all .2s;cursor:pointer}
+.btn-ghost-sm{display:inline-flex;align-items:center;gap:.35rem;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.07em;font-weight:400;padding:.48rem 1rem;background:transparent;color:var(--a);border:1px solid var(--a);text-decoration:none;white-space:nowrap;transition:all .2s;cursor:pointer}
 .btn-ghost-sm:hover{background:var(--a);color:#000}
 section{position:relative;z-index:10;padding:0 clamp(1.2rem,5vw,4.5rem)}
 /* HERO */
 #hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:64px}
-.eyebrow{font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.25em;color:var(--a);margin-bottom:1.2rem;opacity:0;animation:fup .7s .2s forwards}
-.h1{font-family:'DM Serif Display',serif;font-size:clamp(4rem,10vw,9rem);line-height:.88;letter-spacing:-.02em;opacity:0;animation:fup .8s .4s forwards}
-.h1 .l1{display:block;color:var(--t)}
-.h1 .l2{display:block;-webkit-text-stroke:1px rgba(0,237,194,.5);color:transparent}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.25em;color:var(--a);margin-bottom:.8rem;opacity:0;animation:fup .7s .2s forwards}
+.h1{font-family:'DM Serif Display',serif;font-size:clamp(5rem,14vw,13rem);line-height:.85;letter-spacing:-.03em;opacity:0;animation:fup .8s .4s forwards}
+.h1 .l1{display:block;-webkit-text-stroke:1.5px rgba(0,237,194,.45);color:transparent}
+.h1 .l2{display:block;color:var(--a)}
 .hero-role{font-size:clamp(.82rem,1.8vw,.98rem);color:var(--m);margin-top:1.6rem;font-weight:300;letter-spacing:.04em;opacity:0;animation:fup .7s .6s forwards}
 .hero-desc{max-width:500px;font-size:.88rem;line-height:1.75;color:var(--m);margin-top:.9rem;opacity:0;animation:fup .7s .8s forwards}
-.avail-badge{display:inline-flex;align-items:center;gap:.5rem;align-self:flex-start;margin-top:1.1rem;padding:.4rem .9rem;border:1px solid rgba(74,222,128,.3);background:rgba(74,222,128,.06);font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.1em;color:#4ade80;opacity:0;animation:fup .7s .9s forwards}
+.avail-badge{display:inline-flex;align-items:center;gap:.5rem;align-self:flex-start;margin-top:1.1rem;padding:.4rem .9rem;border:1px solid rgba(74,222,128,.3);background:rgba(74,222,128,.06);font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;color:#4ade80;opacity:0;animation:fup .7s .9s forwards}
 .avail-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;flex-shrink:0;animation:pulse 2s infinite}
 .hero-cta-row{display:flex;gap:.9rem;align-items:center;margin-top:2rem;flex-wrap:wrap;opacity:0;animation:fup .7s 1s forwards}
 .hero-metrics{display:flex;gap:2rem;margin-top:3.5rem;padding-top:2rem;border-top:1px solid rgba(0,237,194,.07);flex-wrap:wrap;opacity:0;animation:fup .7s 1.2s forwards}
 .hm-n{font-family:'DM Serif Display',serif;font-size:2.4rem;color:var(--a);line-height:1}
 .hm-l{font-size:.63rem;color:var(--m);letter-spacing:.07em;margin-top:.2rem;text-transform:uppercase}
-.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;font-family:'Space Mono',monospace;font-size:.52rem;color:var(--m);letter-spacing:.2em;animation:pulse 2.5s infinite}
+.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;font-family:'JetBrains Mono',monospace;font-size:.52rem;color:var(--m);letter-spacing:.2em;animation:pulse 2.5s infinite}
 .sh-l{width:1px;height:44px;background:linear-gradient(180deg,var(--a),transparent)}
 /* PIPELINE */
-#pipeline{padding-top:8rem;padding-bottom:6rem}
-.s-eye{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.25em;color:var(--a);text-transform:uppercase;margin-bottom:.9rem}
-.s-title{font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,3.2rem);line-height:1;letter-spacing:-.01em;margin-bottom:2rem}
+#pipeline{padding-top:10rem;padding-bottom:7rem}
+/* Section headers — decorative number system */
+.s-head{position:relative;padding-bottom:.2rem}
+.s-num{position:absolute;top:-2.5rem;left:-1rem;font-family:'DM Serif Display',serif;font-size:clamp(5rem,10vw,8rem);font-weight:400;color:var(--a);opacity:.04;line-height:1;pointer-events:none;user-select:none;z-index:0}
+.s-eye{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.25em;color:var(--a);text-transform:uppercase;margin-bottom:.9rem;position:relative;z-index:1}
+.s-title{font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,3.2rem);line-height:1;letter-spacing:-.01em;margin-bottom:2rem;position:relative;z-index:1}
 .pipe-wrap{border:1px solid rgba(0,237,194,.07);background:rgba(8,14,32,.75);overflow:hidden}
 canvas#pipe{display:block;width:100%;height:340px}
 .pipe-legend{display:flex;gap:1.2rem;margin-top:.75rem;flex-wrap:wrap}
-.leg{display:flex;align-items:center;gap:.38rem;font-family:'Space Mono',monospace;font-size:.56rem;color:var(--m);letter-spacing:.06em}
+.leg{display:flex;align-items:center;gap:.38rem;font-family:'JetBrains Mono',monospace;font-size:.56rem;color:var(--m);letter-spacing:.06em}
 .leg-d{width:7px;height:7px;transform:rotate(45deg);flex-shrink:0}
 /* STACK */
-#stack{padding-top:7rem;padding-bottom:6rem}
+#stack{padding-top:10rem;padding-bottom:7rem}
 .stack-tiers{display:flex;flex-direction:column;gap:1.8rem;margin-top:2rem}
-.tier-hd{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:.75rem;display:flex;align-items:center;gap:.7rem}
+.tier-hd{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:.75rem;display:flex;align-items:center;gap:.7rem}
 .tier-hd::after{content:'';flex:1;height:1px;background:currentColor;opacity:.1}
 .chips{display:flex;flex-wrap:wrap;gap:.5rem}
 .chip{display:inline-flex;align-items:center;gap:.45rem;padding:.4rem .85rem;border:1px solid;font-size:.72rem;transition:all .25s;cursor:default}
 .chip.ex{border-color:rgba(0,237,194,.3);color:var(--t)}.chip.ex:hover{border-color:var(--a);color:var(--a);transform:translateY(-2px)}
-.chip.so{border-color:rgba(124,111,247,.25);color:var(--t)}.chip.so:hover{border-color:var(--a2);color:var(--a2);transform:translateY(-2px)}
+.chip.so{border-color:rgba(0,237,194,.15);color:var(--t)}.chip.so:hover{border-color:var(--a);color:var(--a);transform:translateY(-2px)}
 .chip.fa{border-color:rgba(90,107,153,.22);color:var(--m)}.chip.fa:hover{border-color:var(--m);color:var(--t);transform:translateY(-2px)}
 /* EXPERIENCE */
-#experience{padding-top:7rem;padding-bottom:6rem}
+#experience{padding-top:10rem;padding-bottom:7rem}
 .exp-row{display:grid;grid-template-columns:160px 1fr;gap:2rem;padding:2.2rem 0;border-top:1px solid rgba(0,237,194,.055);transition:background .25s,padding-left .25s}
 .exp-row:hover{background:rgba(0,237,194,.012);padding-left:.6rem}
 @media(max-width:640px){.exp-row{grid-template-columns:1fr;gap:1rem}}
-.exp-period{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.08em;color:var(--a);margin-bottom:.35rem}
+.exp-period{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.08em;color:var(--a);margin-bottom:.35rem}
 .exp-co{font-size:.75rem;color:var(--m);line-height:1.45}
 .exp-title{font-family:'DM Serif Display',serif;font-size:1.35rem;margin-bottom:.9rem;line-height:1.1}
 .eb{display:flex;gap:.75rem;font-size:.8rem;line-height:1.65;color:var(--m);margin-bottom:.6rem}
 .eb-d{width:5px;height:5px;background:var(--a);transform:rotate(45deg);flex-shrink:0;margin-top:.55rem}
 .eb strong{color:var(--t);font-weight:600}
 .exp-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.9rem}
-.etag{font-family:'Space Mono',monospace;font-size:.54rem;padding:.18rem .55rem;border:1px solid rgba(0,237,194,.12);color:var(--a);letter-spacing:.05em}
+.etag{font-family:'JetBrains Mono',monospace;font-size:.54rem;padding:.18rem .55rem;border:1px solid rgba(0,237,194,.12);color:var(--a);letter-spacing:.05em}
 /* IMPACT */
-#impact{padding-top:7rem;padding-bottom:6rem}
-.imp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(0,237,194,.04);margin-top:2rem}
-@media(max-width:700px){.imp-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:420px){.imp-grid{grid-template-columns:1fr}}
-.imp-card{background:var(--bg);padding:2rem 1.6rem;transition:background .3s;position:relative;overflow:hidden}
-.imp-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--a),var(--a2));transform:scaleX(0);transform-origin:left;transition:transform .38s}
-.imp-card:hover{background:var(--s1)}.imp-card:hover::after{transform:scaleX(1)}
-.imp-num{font-family:'DM Serif Display',serif;font-size:3rem;line-height:1;color:var(--a);margin-bottom:.55rem}
-.imp-name{font-size:.82rem;font-weight:700;margin-bottom:.35rem}
+#impact{padding-top:10rem;padding-bottom:7rem}
+.imp-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(0,237,194,.06);margin-top:2rem}
+@media(max-width:480px){.imp-grid{grid-template-columns:1fr}}
+.imp-card{background:var(--bg);padding:2.8rem 2rem;min-height:200px;transition:background .3s,transform .3s;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between}
+.imp-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--a);transform:scaleX(0);transform-origin:left;transition:transform .38s}
+.imp-card:hover{background:var(--s1);transform:translateY(-2px)}.imp-card:hover::after{transform:scaleX(1)}
+.imp-num{font-family:'DM Serif Display',serif;font-size:clamp(3.5rem,6vw,5rem);line-height:1;color:var(--a);margin-bottom:.4rem}
+.imp-name{font-size:.82rem;font-weight:700;margin-bottom:.3rem;color:var(--t)}
 .imp-desc{font-size:.75rem;line-height:1.6;color:var(--m)}
-.imp-tech{font-family:'Space Mono',monospace;font-size:.56rem;color:var(--a2);margin-top:.7rem;letter-spacing:.05em}
+.imp-tech{font-family:'JetBrains Mono',monospace;font-size:.54rem;color:rgba(0,237,194,.5);margin-top:.6rem;letter-spacing:.06em}
 /* TERMINAL */
-#terminal-sec{padding-top:7rem;padding-bottom:6rem}
+#terminal-sec{padding-top:10rem;padding-bottom:7rem}
 .term-outer{border:1px solid rgba(0,237,194,.16);overflow:hidden}
 .term-bar{background:#111827;padding:.5rem .9rem;display:flex;align-items:center;gap:.45rem;border-bottom:1px solid rgba(255,255,255,.04)}
 .td{width:10px;height:10px;border-radius:50%;flex-shrink:0}
-.term-title-bar{font-family:'Space Mono',monospace;font-size:.58rem;color:#4b5563;margin-left:.4rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.term-scroll{height:260px;overflow-y:auto;background:#0d1117;padding:1.1rem 1.2rem;font-family:'Space Mono',monospace;font-size:.72rem;line-height:1.9}
+.term-title-bar{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:#4b5563;margin-left:.4rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.term-scroll{height:260px;overflow-y:auto;background:#0d1117;padding:1.1rem 1.2rem;font-family:'JetBrains Mono',monospace;font-size:.72rem;line-height:1.9}
 .term-scroll::-webkit-scrollbar{width:3px}.term-scroll::-webkit-scrollbar-thumb{background:rgba(0,237,194,.2)}
 .tl{display:block;word-break:break-all}
-.tl.cmd{color:var(--a)}.tl.out{color:var(--t);opacity:.78}.tl.ok{color:#4ade80}.tl.warn{color:var(--a4)}.tl.err{color:var(--a3)}.tl.info{color:var(--a2)}.tl.dim{color:var(--m)}
+.tl.cmd{color:var(--a)}.tl.out{color:var(--t);opacity:.78}.tl.ok{color:#4ade80}.tl.warn{color:var(--a4)}.tl.err{color:var(--a3)}.tl.info{color:rgba(0,237,194,.7)}.tl.dim{color:var(--m)}
 .term-input-row{display:flex;align-items:center;gap:.5rem;padding:.7rem 1.1rem;border-top:1px solid rgba(0,237,194,.07);background:#0d1117}
-.term-prompt{font-family:'Space Mono',monospace;font-size:.72rem;color:var(--a);white-space:nowrap;flex-shrink:0}
-.term-input{background:transparent;border:none;outline:none;font-family:'Space Mono',monospace;font-size:.72rem;color:var(--t);flex:1;min-width:0}
+.term-prompt{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--a);white-space:nowrap;flex-shrink:0}
+.term-input{background:transparent;border:none;outline:none;font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--t);flex:1;min-width:0}
 .term-hints{display:flex;gap:.5rem;flex-wrap:wrap;padding:.5rem 1.1rem .6rem;background:#0d1117;border-top:1px solid rgba(255,255,255,.03)}
-.hint{font-family:'Space Mono',monospace;font-size:.54rem;padding:.2rem .55rem;border:1px solid rgba(0,237,194,.12);color:var(--m);cursor:pointer;transition:all .18s;background:transparent}
+.hint{font-family:'JetBrains Mono',monospace;font-size:.54rem;padding:.2rem .55rem;border:1px solid rgba(0,237,194,.12);color:var(--m);cursor:pointer;transition:all .18s;background:transparent}
 .hint:hover{color:var(--a);border-color:rgba(0,237,194,.35)}
 /* GAME */
-#game-sec{padding-top:7rem;padding-bottom:6rem}
+#game-sec{padding-top:10rem;padding-bottom:7rem}
 .game-wrap{display:flex;gap:1.8rem;flex-wrap:wrap;border:1px solid rgba(0,237,194,.1);background:rgba(8,14,32,.8);padding:1.6rem}
 .game-left{flex:1;min-width:260px}
 .game-hud{display:flex;gap:1.2rem;margin-bottom:1rem;flex-wrap:wrap;align-items:flex-end}
-.hud-item{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--m);letter-spacing:.09em}
+.hud-item{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--m);letter-spacing:.09em}
 .hud-item span{color:var(--a);font-size:.82rem;font-weight:700;display:block}
 /* tier upgrade flash */
 .tier-flash{animation:tierPop .6s ease forwards}
@@ -140,13 +142,13 @@ canvas#pipe{display:block;width:100%;height:340px}
 canvas#game{display:block;border:1px solid rgba(0,237,194,.18);width:100%;max-width:480px;image-rendering:pixelated;touch-action:none}
 .mobile-controls{display:none;gap:.75rem;margin-top:.8rem;align-items:center;justify-content:center}
 @media(pointer:coarse){.mobile-controls{display:flex}}
-.mc-btn{font-family:'Space Mono',monospace;font-size:.7rem;padding:.75rem 1.4rem;border:1px solid rgba(0,237,194,.3);color:var(--a);background:rgba(0,237,194,.05);user-select:none;-webkit-user-select:none;touch-action:manipulation}
+.mc-btn{font-family:'JetBrains Mono',monospace;font-size:.7rem;padding:.75rem 1.4rem;border:1px solid rgba(0,237,194,.3);color:var(--a);background:rgba(0,237,194,.05);user-select:none;-webkit-user-select:none;touch-action:manipulation}
 .mc-fire{border-color:rgba(245,166,35,.5);color:var(--a4);background:rgba(245,166,35,.07)}
 .game-btns{display:flex;gap:.6rem;margin-top:.85rem;flex-wrap:wrap}
-.gc-btn{font-family:'Space Mono',monospace;font-size:.6rem;padding:.45rem .9rem;border:1px solid rgba(0,237,194,.2);color:var(--a);background:transparent;cursor:pointer;transition:all .18s;letter-spacing:.07em}
+.gc-btn{font-family:'JetBrains Mono',monospace;font-size:.6rem;padding:.45rem .9rem;border:1px solid rgba(0,237,194,.2);color:var(--a);background:transparent;cursor:pointer;transition:all .18s;letter-spacing:.07em}
 .gc-btn:hover{background:rgba(0,237,194,.07);border-color:var(--a)}
 .game-right{width:210px;min-width:170px;flex-shrink:0}
-.game-info{font-family:'Space Mono',monospace}
+.game-info{font-family:'JetBrains Mono',monospace}
 .gi-title{font-size:.6rem;letter-spacing:.14em;color:var(--a);margin-bottom:.7rem;text-transform:uppercase;border-bottom:1px solid rgba(0,237,194,.1);padding-bottom:.4rem}
 .gi-line{font-size:.58rem;color:var(--m);margin-bottom:.38rem;line-height:1.5}
 .gi-line b{color:var(--t)}
@@ -163,37 +165,107 @@ canvas#game{display:block;border:1px solid rgba(0,237,194,.18);width:100%;max-wi
 /* badge */
 #g-badge{margin-top:1rem;padding:.7rem;border-width:1px;border-style:solid;font-size:.58rem;letter-spacing:.07em;display:none;line-height:1.5;transition:all .3s}
 /* tier announce overlay */
-#tier-announce{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Space Mono',monospace;font-size:1.1rem;font-weight:700;pointer-events:none;opacity:0;text-align:center;z-index:10;white-space:nowrap}
+#tier-announce{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'JetBrains Mono',monospace;font-size:1.1rem;font-weight:700;pointer-events:none;opacity:0;text-align:center;z-index:10;white-space:nowrap}
 .game-canvas-wrap{position:relative;display:inline-block;width:100%;max-width:480px}
 /* CONTACT */
-#contact{padding-top:7rem;padding-bottom:8rem}
-.contact-big{font-family:'DM Serif Display',serif;font-size:clamp(2.5rem,6vw,5.5rem);line-height:.92;letter-spacing:-.02em;margin-bottom:2rem}
+#contact{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:10rem;padding-bottom:8rem}
+.contact-big{font-family:'DM Serif Display',serif;font-size:clamp(3rem,7vw,6.5rem);line-height:.9;letter-spacing:-.02em;margin-bottom:2.5rem}
 .contact-big em{color:var(--a);font-style:italic}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(0,237,194,.05);max-width:560px}
 @media(max-width:480px){.contact-grid{grid-template-columns:1fr}}
 .cc{background:var(--bg);padding:1.3rem 1.6rem;text-decoration:none;display:block;border-bottom:2px solid transparent;transition:background .25s,border-color .25s;position:relative}
 .cc:hover{background:var(--s1);border-bottom-color:var(--a)}
-.cc-lbl{font-family:'Space Mono',monospace;font-size:.54rem;letter-spacing:.16em;color:var(--a);margin-bottom:.3rem;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between}
+.cc-lbl{font-family:'JetBrains Mono',monospace;font-size:.54rem;letter-spacing:.16em;color:var(--a);margin-bottom:.3rem;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between}
 .cc-val{font-size:.82rem;color:var(--t);word-break:break-all;transition:color .2s}
 .cc:hover .cc-val{color:var(--a)}
-.copy-btn{font-family:'Space Mono',monospace;font-size:.5rem;padding:.15rem .4rem;border:1px solid rgba(0,237,194,.2);color:var(--m);background:transparent;cursor:pointer;transition:all .2s;letter-spacing:.05em}
+.copy-btn{font-family:'JetBrains Mono',monospace;font-size:.5rem;padding:.15rem .4rem;border:1px solid rgba(0,237,194,.2);color:var(--m);background:transparent;cursor:pointer;transition:all .2s;letter-spacing:.05em}
 .copy-btn:hover{color:var(--a);border-color:var(--a)}
 .copy-btn.copied{color:#4ade80;border-color:#4ade80}
 .resume-box{margin-top:2rem;padding:1.6rem 1.8rem;border:1px solid rgba(0,237,194,.13);background:rgba(8,14,32,.5);display:flex;align-items:center;justify-content:space-between;gap:1.2rem;max-width:560px;flex-wrap:wrap}
 .rb-txt h3{font-size:.95rem;font-weight:700;margin-bottom:.28rem}
 .rb-txt p{font-size:.75rem;color:var(--m)}
-footer{position:relative;z-index:10;padding:1.6rem clamp(1.2rem,5vw,4.5rem);border-top:1px solid rgba(0,237,194,.055);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
-.ft{font-family:'Space Mono',monospace;font-size:.58rem;color:var(--m);letter-spacing:.07em}
+footer{position:relative;z-index:10;border-top:1px solid rgba(0,237,194,.055)}
+.marquee-wrap{overflow:hidden;padding:.55rem 0;border-bottom:1px solid rgba(0,237,194,.04)}
+.marquee-track{display:flex;width:max-content;animation:marq 35s linear infinite}
+.marquee-track span{font-family:'JetBrains Mono',monospace;font-size:.56rem;color:var(--a);opacity:.25;letter-spacing:.12em;white-space:nowrap;padding:0 .5rem}
+@keyframes marq{to{transform:translateX(-50%)}}
+.ft-inner{padding:.9rem clamp(1.2rem,5vw,4.5rem);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+.ft{font-family:'JetBrains Mono',monospace;font-size:.56rem;color:var(--m);letter-spacing:.07em}
 .rev{opacity:0;transform:translateY(28px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
 .rev.in{opacity:1;transform:translateY(0)}
 @keyframes fup{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+/* ── BOOT SEQUENCE ── */
+#boot{position:fixed;inset:0;background:#040711;z-index:10000;display:flex;flex-direction:column;justify-content:center;padding:clamp(2rem,8vw,5rem);font-family:'JetBrains Mono',monospace;opacity:1;transition:opacity .4s ease}
+#boot.fade-out{opacity:0;pointer-events:none}
+.boot-line{font-size:clamp(.7rem,.9vw,.82rem);color:#00edc2;letter-spacing:.08em;margin-bottom:.55rem;opacity:0;transition:opacity .25s ease;line-height:1.7}
+.boot-line.show{opacity:1}
+.boot-cursor{display:inline-block;width:8px;height:.85em;background:#00edc2;vertical-align:middle;margin-left:3px;animation:bcur .5s step-end infinite}
+@keyframes bcur{50%{opacity:0}}
+/* ── DOT GRID (replaces old grid-bg) ── */
+.dot-grid{position:fixed;inset:0;pointer-events:none;z-index:0;background-image:radial-gradient(circle,rgba(0,237,194,.22) 1px,transparent 1px);background-size:24px 24px;opacity:.04;animation:dgpan 60s linear infinite}
+@keyframes dgpan{0%{background-position:0 0}100%{background-position:24px 24px}}
+/* ── HERO LETTER ANIMATION ── */
+.h1-letter{display:inline-block;opacity:0;clip-path:inset(0 0 100% 0)}
+@keyframes letterReveal{to{clip-path:inset(0 0 0% 0);opacity:1}}
+/* ── TYPEWRITER CURSOR ── */
+.type-cursor{display:inline-block;width:2px;height:1em;background:var(--a);vertical-align:text-bottom;margin-left:1px;animation:tcur .7s step-end infinite}
+@keyframes tcur{50%{opacity:0}}
+/* ── LIVE BADGE ── */
+.live-badge{display:inline-flex;align-items:center;gap:.35rem;font-family:'JetBrains Mono',monospace;font-size:.46rem;letter-spacing:.1em;color:var(--green);vertical-align:middle;margin-left:.5rem}
+.live-dot{width:5px;height:5px;border-radius:50%;background:var(--green);flex-shrink:0;animation:livePulse 2s ease-in-out infinite}
+@keyframes livePulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.6);opacity:.35}}
+/* JetBrains Mono for metrics/numbers */
+.hm-n,.imp-num,.hud-item span,.lb-score{font-family:'JetBrains Mono',monospace!important}
+/* ── SKILL PROGRESS BARS ── */
+.skill-bar-item{width:100%;display:flex;align-items:center;gap:.75rem;padding:.42rem .9rem;border:1px solid;font-size:.72rem;transition:all .25s;cursor:default;position:relative}
+.skill-bar-item.ex{border-color:rgba(0,237,194,.3);color:var(--t)}.skill-bar-item.ex:hover{border-color:var(--a);background:rgba(0,237,194,.04);transform:translateY(-1px)}
+.skill-bar-item.so{border-color:rgba(0,237,194,.15);color:var(--t)}.skill-bar-item.so:hover{border-color:var(--a);background:rgba(0,237,194,.03);transform:translateY(-1px)}
+.skill-bar-item.fa{border-color:rgba(90,107,153,.22);color:var(--m)}.skill-bar-item.fa:hover{border-color:var(--m);transform:translateY(-1px)}
+.sbi-name{min-width:0;flex:0 0 auto;white-space:nowrap}
+.sbi-bar{flex:1;height:2px;background:rgba(255,255,255,.06);position:relative;min-width:50px}
+.sbi-fill{height:100%;width:0%;transition:width 1s cubic-bezier(.16,1,.3,1);position:relative}
+.sbi-fill::after{content:'';position:absolute;right:-2px;top:-3px;width:4px;height:4px;border-radius:50%;background:currentColor}
+.sbi-pct{font-family:'JetBrains Mono',monospace;font-size:.5rem;color:var(--m);min-width:28px;text-align:right}
+.skill-bar-item .tip{position:absolute;bottom:calc(100% + 6px);left:0;background:#0c1530;border:1px solid rgba(0,237,194,.35);padding:.32rem .65rem;font-size:.6rem;color:var(--t);white-space:nowrap;z-index:20;opacity:0;transform:scale(.95);transition:opacity .15s,transform .15s;pointer-events:none;font-family:'Outfit',sans-serif;line-height:1.5;max-width:280px;white-space:normal}
+.skill-bar-item:hover .tip{opacity:1;transform:scale(1)}
+/* ── EXPERIENCE TIMELINE ── */
+.exp-timeline{position:relative;padding-left:1.4rem}
+.exp-tl-line{position:absolute;left:0;top:2.5rem;bottom:0;width:2px;background:linear-gradient(180deg,var(--a),rgba(0,237,194,.1));transform-origin:top;transform:scaleY(0);transition:transform 1.4s cubic-bezier(.16,1,.3,1)}
+.exp-timeline.in .exp-tl-line{transform:scaleY(1)}
+.exp-tl-dot{position:absolute;left:-1.5rem;width:10px;height:10px;border-radius:50%;background:var(--bg);border:2px solid var(--a);box-shadow:0 0 10px rgba(0,237,194,.4);margin-left:-4px}
+/* ── SPARKLINES ── */
+.imp-spark{margin-top:.55rem}
+.spark-path{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1s ease .2s}
+.spark-path.drawn{stroke-dashoffset:0}
+/* ── SCANLINE OVERLAY ── */
+.scanline{position:absolute;inset:0;pointer-events:none;z-index:3;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.04) 2px,rgba(0,0,0,.04) 4px);border-radius:inherit}
+/* ── THROUGHPUT BADGE ── */
+.throughput-badge{display:inline-flex;align-items:center;gap:.5rem;font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.07em;color:var(--green);padding:.32rem .8rem;border:1px solid rgba(34,197,94,.2);background:rgba(34,197,94,.04);margin-top:.85rem}
+#throughput-val{font-family:'JetBrains Mono',monospace}
+/* ── CONTACT AVAILABILITY ── */
+.contact-avail{display:inline-flex;align-items:center;gap:.5rem;font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.14em;color:var(--green);margin-bottom:1.5rem}
+.contact-avail-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:livePulse 2s ease-in-out infinite}
+/* ── WORD REVEAL ── */
+.word-wrap{overflow:hidden;display:inline-block;vertical-align:bottom;margin:0 .06em}
+.word-reveal{display:inline-block;transform:translateY(110%);transition:transform .55s cubic-bezier(.16,1,.3,1)}
+.word-reveal.in{transform:translateY(0)}
+/* ── CRT GAME FRAME ── */
+.game-crt{position:relative}
+.game-crt::after{content:'';position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,.04) 3px,rgba(0,0,0,.04) 4px);z-index:2;border-radius:inherit}
+.game-crt canvas{box-shadow:inset 0 0 32px rgba(34,197,94,.07),0 0 0 1px rgba(0,237,194,.18)}
+/* ── SCROLL INDICATOR ── */
+.sh-l{transform-origin:top;animation:shpulse 2.2s ease-in-out infinite}
+@keyframes shpulse{0%,100%{transform:scaleY(.6);opacity:.35}55%{transform:scaleY(1);opacity:1}}
+/* ── REDUCED MOTION ── */
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;clip-path:none!important;transform:none!important;opacity:1!important}}
 </style>
 </head>
 <body>
+<div id="boot"></div>
 <div id="cur"></div><div id="cur-r"></div>
 <div id="prog"><div id="prog-bar"></div></div>
-<div class="grid-bg"></div><div class="vig"></div>
+<div class="dot-grid"></div><div class="vig"></div>
 <canvas id="space"></canvas>
 
 <nav>
@@ -243,47 +315,75 @@ footer{position:relative;z-index:10;padding:1.6rem clamp(1.2rem,5vw,4.5rem);bord
     <button class="btn-outline" id="dl-hero">↓ Download Resume</button>
   </div>
   <div class="hero-metrics">
-    <div><div class="hm-n">80%</div><div class="hm-l">Pipeline Speedup</div></div>
-    <div><div class="hm-n">4×</div><div class="hm-l">Spark Gain</div></div>
-    <div><div class="hm-n">99%</div><div class="hm-l">Job Success</div></div>
-    <div><div class="hm-n">3TB+</div><div class="hm-l">Daily Volume</div></div>
+    <div><div class="hm-n" data-count="80" data-suffix="%">80%</div><div class="hm-l">Pipeline Speedup<span class="live-badge"><span class="live-dot"></span>LIVE</span></div></div>
+    <div><div class="hm-n" data-count="4" data-suffix="×">4×</div><div class="hm-l">Spark Gain<span class="live-badge"><span class="live-dot"></span>LIVE</span></div></div>
+    <div><div class="hm-n" data-count="99" data-suffix="%">99%</div><div class="hm-l">Job Success<span class="live-badge"><span class="live-dot"></span>LIVE</span></div></div>
+    <div><div class="hm-n" data-count="3" data-suffix="TB+">3TB+</div><div class="hm-l">Daily Volume<span class="live-badge"><span class="live-dot"></span>LIVE</span></div></div>
   </div>
   <div class="scroll-hint"><div class="sh-l"></div><span>SCROLL</span></div>
 </section>
 
 <section id="pipeline">
-  <div class="rev"><div class="s-eye">// 01 · Live Architecture</div><h2 class="s-title">The lakehouse in motion.</h2></div>
+  <div class="rev"><div class="s-head"><div class="s-num" aria-hidden="true">01</div><div class="s-eye">// 01 · Live Architecture</div><h2 class="s-title">The lakehouse in motion.</h2></div></div>
   <div class="rev pipe-wrap"><canvas id="pipe" role="img" aria-label="Animated lakehouse pipeline"></canvas></div>
+  <div class="rev"><div class="throughput-badge"><span class="live-dot"></span>●&nbsp;LIVE&nbsp;<span id="throughput-val">3.2TB processed today</span></div></div>
   <div class="rev pipe-legend">
     <div class="leg"><div class="leg-d" style="background:#00edc2"></div>Bronze — Raw Ingestion</div>
-    <div class="leg"><div class="leg-d" style="background:#7c6ff7"></div>Silver — Transformed</div>
+    <div class="leg"><div class="leg-d" style="background:rgba(0,237,194,.5)"></div>Silver — Transformed</div>
     <div class="leg"><div class="leg-d" style="background:#f5a623"></div>Gold — Analytics Ready</div>
     <div class="leg"><div class="leg-d" style="background:#ff5e7a"></div>DLQ — Failed Events</div>
   </div>
 </section>
 
 <section id="stack">
-  <div class="rev"><div class="s-eye">// 02 · Arsenal</div><h2 class="s-title">Stack, ranked by depth.</h2></div>
+  <div class="rev"><div class="s-head"><div class="s-num" aria-hidden="true">02</div><div class="s-eye">// 02 · Arsenal</div><h2 class="s-title">Stack, ranked by depth.</h2></div></div>
   <div class="rev stack-tiers">
     <div>
-      <div class="tier-hd" style="color:var(--a)">Expert — daily production</div>
-      <div class="chips"><span class="chip ex">⚡ Apache Spark</span><span class="chip ex">☸ Kubernetes/OpenShift</span><span class="chip ex">🐳 Docker & Helm</span><span class="chip ex">🧊 Apache Iceberg</span><span class="chip ex">🐍 PySpark/Python</span><span class="chip ex">🌊 Airflow</span><span class="chip ex">🟠 Apache NiFi</span><span class="chip ex">📦 Parquet/Avro/ORC</span></div>
+      <div class="tier-hd" style="color:var(--a)">[ EXPERT ] — daily production</div>
+      <div class="chips">
+        <div class="skill-bar-item ex"><span class="sbi-name">⚡ Apache Spark</span><div class="sbi-bar"><div class="sbi-fill" data-width="93" style="background:var(--a);color:var(--a)"></div></div><span class="sbi-pct">93%</span><div class="tip">Rewrote partitioning for 4× perf on TB workloads</div></div>
+        <div class="skill-bar-item ex"><span class="sbi-name">☸ Kubernetes/OpenShift</span><div class="sbi-bar"><div class="sbi-fill" data-width="91" style="background:var(--a);color:var(--a)"></div></div><span class="sbi-pct">91%</span><div class="tip">Multi-tenant Spark Operator, SCCs, network policies</div></div>
+        <div class="skill-bar-item ex"><span class="sbi-name">🧊 Apache Iceberg</span><div class="sbi-bar"><div class="sbi-fill" data-width="90" style="background:var(--a);color:var(--a)"></div></div><span class="sbi-pct">90%</span><div class="tip">Bronze→Silver→Gold medallion, ACID, time travel</div></div>
+        <div class="skill-bar-item ex"><span class="sbi-name">🐍 PySpark / Python</span><div class="sbi-bar"><div class="sbi-fill" data-width="92" style="background:var(--a);color:var(--a)"></div></div><span class="sbi-pct">92%</span><div class="tip">ETL pipelines, UDFs, performance tuning at scale</div></div>
+        <div class="skill-bar-item ex"><span class="sbi-name">🌊 Apache Airflow</span><div class="sbi-bar"><div class="sbi-fill" data-width="88" style="background:var(--a);color:var(--a)"></div></div><span class="sbi-pct">88%</span><div class="tip">DAG authoring, SLA monitoring, cross-system deps</div></div>
+        <div class="skill-bar-item ex"><span class="sbi-name">🟠 Apache NiFi</span><div class="sbi-bar"><div class="sbi-fill" data-width="86" style="background:var(--a);color:var(--a)"></div></div><span class="sbi-pct">86%</span><div class="tip">3TB+/day from SFTP, Oracle CDC, REST ingest</div></div>
+        <div class="skill-bar-item ex"><span class="sbi-name">🐳 Docker &amp; Helm</span><div class="sbi-bar"><div class="sbi-fill" data-width="87" style="background:var(--a);color:var(--a)"></div></div><span class="sbi-pct">87%</span><div class="tip">Containerized platform services, chart templating</div></div>
+        <div class="skill-bar-item ex"><span class="sbi-name">📦 Parquet / Avro / ORC</span><div class="sbi-bar"><div class="sbi-fill" data-width="89" style="background:var(--a);color:var(--a)"></div></div><span class="sbi-pct">89%</span><div class="tip">128MB blocks, column pruning, 3× read throughput</div></div>
+      </div>
     </div>
     <div>
-      <div class="tier-hd" style="color:var(--a2)">Solid — built and shipped</div>
-      <div class="chips"><span class="chip so">🔷 Trino</span><span class="chip so">📡 Kafka</span><span class="chip so">🗄 Hive Metastore</span><span class="chip so">🧪 DBT</span><span class="chip so">🪣 MinIO/S3</span><span class="chip so">📊 Superset</span><span class="chip so">☁ Azure</span><span class="chip so">🔑 Lakekeeper</span></div>
+      <div class="tier-hd" style="color:rgba(0,237,194,.6)">[ SOLID ] — built and shipped</div>
+      <div class="chips">
+        <div class="skill-bar-item so"><span class="sbi-name">🔷 Trino</span><div class="sbi-bar"><div class="sbi-fill" data-width="72" style="background:rgba(0,237,194,.55);color:rgba(0,237,194,.55)"></div></div><span class="sbi-pct">72%</span><div class="tip">Federated queries across Iceberg, Hive, Postgres</div></div>
+        <div class="skill-bar-item so"><span class="sbi-name">📡 Kafka</span><div class="sbi-bar"><div class="sbi-fill" data-width="70" style="background:rgba(0,237,194,.55);color:rgba(0,237,194,.55)"></div></div><span class="sbi-pct">70%</span><div class="tip">Event streaming from Oracle CDC into Bronze layer</div></div>
+        <div class="skill-bar-item so"><span class="sbi-name">🗄 Hive Metastore</span><div class="sbi-bar"><div class="sbi-fill" data-width="68" style="background:rgba(0,237,194,.55);color:rgba(0,237,194,.55)"></div></div><span class="sbi-pct">68%</span><div class="tip">Catalog for Spark + Trino, schema management</div></div>
+        <div class="skill-bar-item so"><span class="sbi-name">🧪 DBT</span><div class="sbi-bar"><div class="sbi-fill" data-width="70" style="background:rgba(0,237,194,.55);color:rgba(0,237,194,.55)"></div></div><span class="sbi-pct">70%</span><div class="tip">Silver→Gold transformations, data quality tests</div></div>
+        <div class="skill-bar-item so"><span class="sbi-name">🪣 MinIO / S3</span><div class="sbi-bar"><div class="sbi-fill" data-width="67" style="background:rgba(0,237,194,.55);color:rgba(0,237,194,.55)"></div></div><span class="sbi-pct">67%</span><div class="tip">Object storage backend for Iceberg data lake</div></div>
+        <div class="skill-bar-item so"><span class="sbi-name">📊 Superset</span><div class="sbi-bar"><div class="sbi-fill" data-width="65" style="background:rgba(0,237,194,.55);color:rgba(0,237,194,.55)"></div></div><span class="sbi-pct">65%</span><div class="tip">Dashboards on Gold layer via Trino connector</div></div>
+        <div class="skill-bar-item so"><span class="sbi-name">☁ Azure</span><div class="sbi-bar"><div class="sbi-fill" data-width="66" style="background:rgba(0,237,194,.55);color:rgba(0,237,194,.55)"></div></div><span class="sbi-pct">66%</span><div class="tip">VM provisioning for OpenShift CRC cluster nodes</div></div>
+        <div class="skill-bar-item so"><span class="sbi-name">🔑 Lakekeeper</span><div class="sbi-bar"><div class="sbi-fill" data-width="68" style="background:rgba(0,237,194,.55);color:rgba(0,237,194,.55)"></div></div><span class="sbi-pct">68%</span><div class="tip">REST Iceberg catalog with fine-grained authz</div></div>
+      </div>
     </div>
     <div>
-      <div class="tier-hd" style="color:var(--m)">Working knowledge</div>
-      <div class="chips"><span class="chip fa">⭐ StarRocks</span><span class="chip fa">🎯 Doris</span><span class="chip fa">☕ Java</span><span class="chip fa">⚙ CI/CD</span><span class="chip fa">🗃 Oracle/PostgreSQL</span><span class="chip fa">🔴 ODF/Ceph</span></div>
+      <div class="tier-hd" style="color:var(--m)">[ LEARNING ] — working knowledge</div>
+      <div class="chips">
+        <div class="skill-bar-item fa"><span class="sbi-name">⭐ StarRocks</span><div class="sbi-bar"><div class="sbi-fill" data-width="45" style="background:var(--m);color:var(--m)"></div></div><span class="sbi-pct">45%</span><div class="tip">OLAP queries on flat tables, exploring adoption</div></div>
+        <div class="skill-bar-item fa"><span class="sbi-name">🎯 Doris</span><div class="sbi-bar"><div class="sbi-fill" data-width="42" style="background:var(--m);color:var(--m)"></div></div><span class="sbi-pct">42%</span><div class="tip">Real-time analytics, evaluating for BI workloads</div></div>
+        <div class="skill-bar-item fa"><span class="sbi-name">☕ Java</span><div class="sbi-bar"><div class="sbi-fill" data-width="48" style="background:var(--m);color:var(--m)"></div></div><span class="sbi-pct">48%</span><div class="tip">Spark internals reading, custom UDF extension</div></div>
+        <div class="skill-bar-item fa"><span class="sbi-name">⚙ CI/CD</span><div class="sbi-bar"><div class="sbi-fill" data-width="52" style="background:var(--m);color:var(--m)"></div></div><span class="sbi-pct">52%</span><div class="tip">GitHub Actions pipelines, ArgoCD GitOps basics</div></div>
+        <div class="skill-bar-item fa"><span class="sbi-name">🗃 Oracle / PostgreSQL</span><div class="sbi-bar"><div class="sbi-fill" data-width="55" style="background:var(--m);color:var(--m)"></div></div><span class="sbi-pct">55%</span><div class="tip">CDC source systems, query optimization, indexing</div></div>
+        <div class="skill-bar-item fa"><span class="sbi-name">🔴 ODF / Ceph</span><div class="sbi-bar"><div class="sbi-fill" data-width="40" style="background:var(--m);color:var(--m)"></div></div><span class="sbi-pct">40%</span><div class="tip">Distributed block/object storage on OpenShift</div></div>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="experience">
-  <div class="rev"><div class="s-eye">// 03 · Experience</div><h2 class="s-title">Where I've shipped.</h2></div>
-  <div class="rev">
-    <div class="exp-row">
+  <div class="rev"><div class="s-head"><div class="s-num" aria-hidden="true">03</div><div class="s-eye">// 03 · Experience</div><h2 class="s-title">Where I've shipped.</h2></div></div>
+  <div class="rev exp-timeline">
+    <div class="exp-tl-line"></div>
+    <div class="exp-row" style="position:relative">
+      <div class="exp-tl-dot" style="top:2.6rem"></div>
       <div><div class="exp-period">Feb 2025 — Present</div><div class="exp-co">DLytica Inc.<br>Client: Ooredoo<br>Kathmandu, Nepal</div></div>
       <div>
         <div class="exp-title">Data Engineer — Platform & ETL</div>
@@ -295,14 +395,16 @@ footer{position:relative;z-index:10;padding:1.6rem clamp(1.2rem,5vw,4.5rem);bord
         <div class="exp-tags"><span class="etag">Spark</span><span class="etag">OpenShift</span><span class="etag">Iceberg</span><span class="etag">Trino</span><span class="etag">Airflow</span><span class="etag">NiFi</span><span class="etag">Kafka</span><span class="etag">DBT</span></div>
       </div>
     </div>
-    <div class="exp-row">
+    <div class="exp-row" style="position:relative">
+      <div class="exp-tl-dot" style="top:1.6rem"></div>
       <div><div class="exp-period">Feb 2025 — Present</div><div class="exp-co">DLytica Academy</div></div>
       <div>
         <div class="exp-title">Tutor — Data Engineering</div>
         <div class="eb"><div class="eb-d"></div><div>Mentored <strong>10+ Data Engineering Fellows</strong> on Spark, K8s, DBT, Airflow, and Iceberg.</div></div>
       </div>
     </div>
-    <div class="exp-row">
+    <div class="exp-row" style="position:relative">
+      <div class="exp-tl-dot" style="top:1.6rem"></div>
       <div><div class="exp-period">Feb 2023 — Jan 2024</div><div class="exp-co">Offer Sewa Pvt. Ltd.</div></div>
       <div>
         <div class="exp-title">Junior Software Engineer</div>
@@ -314,20 +416,21 @@ footer{position:relative;z-index:10;padding:1.6rem clamp(1.2rem,5vw,4.5rem);bord
 </section>
 
 <section id="impact">
-  <div class="rev"><div class="s-eye">// 04 · Impact</div><h2 class="s-title">Numbers I own.</h2></div>
+  <div class="rev"><div class="s-head"><div class="s-num" aria-hidden="true">04</div><div class="s-eye">// 04 · Impact</div><h2 class="s-title">Numbers I own.</h2></div></div>
   <div class="rev imp-grid">
-    <div class="imp-card"><div class="imp-num">80%</div><div class="imp-name">Pipeline Runtime Cut</div><div class="imp-desc">Terabyte Spark workloads from hours to minutes.</div><div class="imp-tech">Spark · OpenShift</div></div>
-    <div class="imp-card"><div class="imp-num">4×</div><div class="imp-name">Spark Performance</div><div class="imp-desc">Broadcast joins, partitioning, executor rewrite.</div><div class="imp-tech">Spark SQL · PySpark</div></div>
-    <div class="imp-card"><div class="imp-num">99%</div><div class="imp-name">Job Success Rate</div><div class="imp-desc">K8s Spark Operator with tuned pod templates.</div><div class="imp-tech">Kubernetes · Helm</div></div>
-    <div class="imp-card"><div class="imp-num">85%</div><div class="imp-name">Error Reduction</div><div class="imp-desc">Automated reconciliation, zero silent corruption.</div><div class="imp-tech">Data Quality</div></div>
-    <div class="imp-card"><div class="imp-num">3×</div><div class="imp-name">Read Throughput</div><div class="imp-desc">Parquet 128MB blocks, pruning, column projection.</div><div class="imp-tech">Parquet · MinIO</div></div>
-    <div class="imp-card"><div class="imp-num">70%</div><div class="imp-name">Faster Onboarding</div><div class="imp-desc">Spark Connect unlocked 15 engineers overnight.</div><div class="imp-tech">Spark Connect · DBT</div></div>
+    <div class="imp-card"><div class="imp-num" data-count="80" data-suffix="%">0%</div><div class="imp-name">Pipeline Runtime Cut</div><div class="imp-desc">Terabyte Spark workloads from hours to minutes.</div><div class="imp-tech">Spark · OpenShift</div><div class="imp-spark"><svg width="80" height="18" viewBox="0 0 80 18" fill="none"><polyline class="spark-path" pathLength="1" points="0,16 12,12 24,8 36,10 48,5 60,7 72,3 80,2" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    <div class="imp-card"><div class="imp-num" data-count="4" data-suffix="×">0×</div><div class="imp-name">Spark Performance</div><div class="imp-desc">Broadcast joins, partitioning, executor rewrite.</div><div class="imp-tech">Spark SQL · PySpark</div><div class="imp-spark"><svg width="80" height="18" viewBox="0 0 80 18" fill="none"><polyline class="spark-path" pathLength="1" points="0,16 13,14 26,10 39,7 52,5 65,3 80,1" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    <div class="imp-card"><div class="imp-num" data-count="99" data-suffix="%">0%</div><div class="imp-name">Job Success Rate</div><div class="imp-desc">K8s Spark Operator with tuned pod templates.</div><div class="imp-tech">Kubernetes · Helm</div><div class="imp-spark"><svg width="80" height="18" viewBox="0 0 80 18" fill="none"><polyline class="spark-path" pathLength="1" points="0,14 12,12 24,13 36,10 48,11 60,8 72,7 80,6" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    <div class="imp-card"><div class="imp-num" data-count="85" data-suffix="%">0%</div><div class="imp-name">Error Reduction</div><div class="imp-desc">Automated reconciliation, zero silent corruption.</div><div class="imp-tech">Data Quality</div><div class="imp-spark"><svg width="80" height="18" viewBox="0 0 80 18" fill="none"><polyline class="spark-path" pathLength="1" points="0,16 11,13 22,11 33,9 44,7 55,5 66,3 80,2" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    <div class="imp-card"><div class="imp-num" data-count="3" data-suffix="×">0×</div><div class="imp-name">Read Throughput</div><div class="imp-desc">Parquet 128MB blocks, pruning, column projection.</div><div class="imp-tech">Parquet · MinIO</div><div class="imp-spark"><svg width="80" height="18" viewBox="0 0 80 18" fill="none"><polyline class="spark-path" pathLength="1" points="0,16 12,14 24,11 36,8 48,9 60,6 72,4 80,2" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    <div class="imp-card"><div class="imp-num" data-count="70" data-suffix="%">0%</div><div class="imp-name">Faster Onboarding</div><div class="imp-desc">Spark Connect unlocked 15 engineers overnight.</div><div class="imp-tech">Spark Connect · DBT</div><div class="imp-spark"><svg width="80" height="18" viewBox="0 0 80 18" fill="none"><polyline class="spark-path" pathLength="1" points="0,16 12,13 24,10 36,11 48,7 60,5 72,3 80,2" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
   </div>
 </section>
 
 <section id="terminal-sec">
-  <div class="rev"><div class="s-eye">// 05 · Interactive Terminal</div><h2 class="s-title">Type <code style="color:var(--a);font-size:.85em;font-family:'Space Mono',monospace">help</code> to explore.</h2></div>
-  <div class="rev term-outer">
+  <div class="rev"><div class="s-head"><div class="s-num" aria-hidden="true">05</div><div class="s-eye">// 05 · Interactive Terminal</div><h2 class="s-title">Type <code style="color:var(--a);font-size:.85em;font-family:'JetBrains Mono',monospace">help</code> to explore.</h2></div></div>
+  <div class="rev term-outer" style="position:relative">
+    <div class="scanline"></div>
     <div class="term-bar">
       <div class="td" style="background:#ff5f57"></div>
       <div class="td" style="background:#febc2e"></div>
@@ -360,7 +463,7 @@ footer{position:relative;z-index:10;padding:1.6rem clamp(1.2rem,5vw,4.5rem);bord
 </section>
 
 <section id="game-sec">
-  <div class="rev"><div class="s-eye">// 06 · Data Pipeline Defender</div><h2 class="s-title">Protect your lakehouse.</h2></div>
+  <div class="rev"><div class="s-head"><div class="s-num" aria-hidden="true">06</div><div class="s-eye">// 06 · Data Pipeline Defender</div><h2 class="s-title">Protect your lakehouse.</h2></div></div>
   <div class="rev"><p style="font-size:.82rem;color:var(--m);margin-bottom:1.3rem;line-height:1.7"><strong style="color:var(--t)">A/D or ← →</strong> to move · <strong style="color:var(--t)">Space</strong> to fire · Enter to start · Beat the leaderboard 🏆</p></div>
   <div class="rev game-wrap">
     <div class="game-left">
@@ -371,7 +474,7 @@ footer{position:relative;z-index:10;padding:1.6rem clamp(1.2rem,5vw,4.5rem);bord
         <div class="hud-item"><span id="g-tier" style="color:var(--a)">BRONZE</span>TIER</div>
         <div class="hud-item"><span id="g-hi">0</span>BEST</div>
       </div>
-      <div class="game-canvas-wrap">
+      <div class="game-canvas-wrap game-crt">
         <canvas id="game" width="480" height="340" tabindex="0" role="application" aria-label="Data Pipeline Defender game"></canvas>
         <div id="tier-announce"></div>
       </div>
@@ -408,8 +511,9 @@ footer{position:relative;z-index:10;padding:1.6rem clamp(1.2rem,5vw,4.5rem);bord
 </section>
 
 <section id="contact">
-  <div class="rev"><div class="s-eye">// 07 · Contact</div></div>
-  <div class="rev contact-big">Let's build<br>something <em>extraordinary</em>.</div>
+  <div class="rev"><div class="s-head"><div class="s-num" aria-hidden="true">07</div><div class="s-eye">// 07 · Contact</div></div></div>
+  <div class="rev"><div class="contact-avail"><span class="contact-avail-dot"></span>AVAILABLE FOR NEW OPPORTUNITIES</div></div>
+  <div class="rev contact-big" id="contact-big">Let's build<br>something <em>extraordinary</em>.</div>
   <div class="rev"><p style="font-size:.88rem;color:var(--m);max-width:460px;line-height:1.75;margin-bottom:1.8rem">Data engineering roles, platform architecture, distributed systems. Kathmandu — available globally.</p></div>
   <div class="rev contact-grid">
     <a href="mailto:404.nepal.prashant@gmail.com" class="cc">
@@ -427,10 +531,19 @@ footer{position:relative;z-index:10;padding:1.6rem clamp(1.2rem,5vw,4.5rem);bord
 </section>
 
 <footer>
-  <div class="ft">© <span id="year"></span> Prashant Nepal · Kathmandu, Nepal (UTC+5:45)</div>
-  <div class="ft" style="color:var(--a)">Built with data engineering precision.</div>
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Spark · Iceberg · Kubernetes · Trino · Airflow · NiFi · Kafka · DBT · MinIO · Parquet · OpenShift · Lakekeeper · StarRocks · Doris · PySpark · Python ·&nbsp;</span>
+      <span>Spark · Iceberg · Kubernetes · Trino · Airflow · NiFi · Kafka · DBT · MinIO · Parquet · OpenShift · Lakekeeper · StarRocks · Doris · PySpark · Python ·&nbsp;</span>
+    </div>
+  </div>
+  <div class="ft-inner">
+    <div class="ft">© <span id="year"></span> Prashant Nepal · Kathmandu, Nepal (UTC+5:45)</div>
+    <div class="ft" style="color:var(--a)">Built with data engineering precision.</div>
+  </div>
 </footer>
 
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 // Footer Year
@@ -894,6 +1007,185 @@ document.querySelectorAll('.imp-card').forEach(c=>{
   c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();c.style.transform=`perspective(700px) rotateX(${((e.clientY-r.top)/r.height-.5)*7}deg) rotateY(${((e.clientX-r.left)/r.width-.5)*-7}deg) translateY(-2px)`});
   c.addEventListener('mouseleave',()=>{c.style.transform=''});
 });
+
+// ── LENIS SMOOTH SCROLL ──
+if(typeof Lenis!=='undefined'){
+  const lenis=new Lenis({duration:1.2,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t)),smoothWheel:true});
+  function rl(time){lenis.raf(time);requestAnimationFrame(rl)}
+  requestAnimationFrame(rl);
+  // Update scroll progress bar via Lenis scroll event
+  lenis.on('scroll',({scroll,limit})=>{document.getElementById('prog-bar').style.width=(scroll/limit*100)+'%'});
+}
+
+// ── BOOT SEQUENCE ──
+(function(){
+  const bootEl=document.getElementById('boot');
+  if(!bootEl)return;
+  if(sessionStorage.getItem('pn_booted')){bootEl.remove();return;}
+  const lines=['Initializing data platform...','Loading pipeline architecture...','Systems nominal.'];
+  lines.forEach((txt,i)=>{
+    const el=document.createElement('div');
+    el.className='boot-line';
+    el.innerHTML=txt+(i===lines.length-1?'<span class="boot-cursor"></span>':'');
+    bootEl.appendChild(el);
+    setTimeout(()=>el.classList.add('show'),280+i*310);
+  });
+  setTimeout(()=>{
+    bootEl.classList.add('fade-out');
+    setTimeout(()=>{bootEl.remove();sessionStorage.setItem('pn_booted','1')},420);
+  },1480);
+})();
+
+// ── HERO LETTER ANIMATION ──
+(function(){
+  const h1=document.querySelector('.h1');
+  if(!h1)return;
+  // Override CSS fup — letters handle their own reveal
+  h1.style.opacity='1';
+  h1.style.animation='none';
+  h1.style.transform='none';
+  const l1len=[...h1.querySelector('.l1').textContent].length;
+  h1.querySelectorAll('.l1,.l2').forEach((span,si)=>{
+    const chars=[...span.textContent];
+    const baseDelay=si===0?0.3:0.3+l1len*0.04+0.05;
+    span.innerHTML='';
+    chars.forEach((ch,ci)=>{
+      const l=document.createElement('span');
+      l.className='h1-letter';
+      l.style.animation='letterReveal .55s cubic-bezier(.76,0,.24,1) '+(baseDelay+ci*0.04).toFixed(2)+'s forwards';
+      l.textContent=ch===' '?' ':ch;
+      span.appendChild(l);
+    });
+  });
+})();
+
+// ── TYPEWRITER ──
+(function(){
+  const el=document.querySelector('.hero-role');
+  if(!el)return;
+  const txt=el.textContent;
+  el.textContent='';
+  el.style.opacity='1';
+  el.style.animation='none';
+  const cur=document.createElement('span');
+  cur.className='type-cursor';
+  el.appendChild(cur);
+  let i=0;
+  function type(){
+    if(i>=txt.length)return;
+    el.insertBefore(document.createTextNode(txt[i]),cur);
+    i++;
+    setTimeout(type,24+Math.random()*20);
+  }
+  setTimeout(type,900);
+})();
+
+// ── COUNT-UP UTILITY ──
+function countUp(el,target,suffix,duration){
+  const start=performance.now();
+  const isFloat=String(target).includes('.');
+  (function tick(now){
+    const p=Math.min((now-start)/duration,1);
+    const ease=1-Math.pow(1-p,4);
+    el.textContent=(isFloat?(target*ease).toFixed(1):Math.round(target*ease))+suffix;
+    if(p<1)requestAnimationFrame(tick);
+    else{
+      // Amber glow pulse after count-up
+      el.style.transition='text-shadow .2s';
+      el.style.textShadow='0 0 18px rgba(0,237,194,.9)';
+      setTimeout(()=>el.style.textShadow='',700);
+    }
+  })(start);
+}
+
+// ── HERO METRICS COUNT-UP ──
+const hmObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    hmObs.unobserve(e.target);
+    e.target.querySelectorAll('[data-count]').forEach(el=>{
+      countUp(el,parseFloat(el.dataset.count),el.dataset.suffix||'',1200);
+    });
+  });
+},{threshold:.4});
+const hmEl=document.querySelector('.hero-metrics');
+if(hmEl)hmObs.observe(hmEl);
+
+// ── IMPACT CARDS COUNT-UP + SPARKLINES ──
+const impCardObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    impCardObs.unobserve(e.target);
+    const num=e.target.querySelector('[data-count]');
+    if(num)countUp(num,parseFloat(num.dataset.count),num.dataset.suffix||'',900);
+    e.target.querySelectorAll('.spark-path').forEach(p=>p.classList.add('drawn'));
+  });
+},{threshold:.35});
+document.querySelectorAll('.imp-card').forEach(c=>impCardObs.observe(c));
+
+// ── SKILL BARS ──
+const skillObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    skillObs.unobserve(e.target);
+    e.target.querySelectorAll('.sbi-fill').forEach((bar,i)=>{
+      setTimeout(()=>{bar.style.width=bar.dataset.width+'%'},i*60);
+    });
+  });
+},{threshold:.15});
+document.querySelectorAll('.stack-tiers > div').forEach(t=>skillObs.observe(t));
+
+// ── EXPERIENCE TIMELINE ──
+const tlObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')});
+},{threshold:.08});
+const tlEl=document.querySelector('.exp-timeline');
+if(tlEl)tlObs.observe(tlEl);
+
+// ── THROUGHPUT COUNTER ──
+(function(){
+  const el=document.getElementById('throughput-val');
+  if(!el)return;
+  let val=3.2;
+  setInterval(()=>{val+=0.0013;if(val>3.95)val=3.2;el.textContent=val.toFixed(1)+'TB processed today'},2200);
+})();
+
+// ── CONTACT WORD REVEAL ──
+(function(){
+  const el=document.getElementById('contact-big');
+  if(!el)return;
+  // Wrap each word (preserve <br> and <em>)
+  function wrapWords(node){
+    if(node.nodeType===3){
+      const words=node.textContent.split(/(\s+)/);
+      const frag=document.createDocumentFragment();
+      words.forEach(w=>{
+        if(!w.trim()){frag.appendChild(document.createTextNode(w));return;}
+        const wrap=document.createElement('span');
+        wrap.className='word-wrap';
+        const inner=document.createElement('span');
+        inner.className='word-reveal';
+        inner.textContent=w;
+        wrap.appendChild(inner);
+        frag.appendChild(wrap);
+      });
+      node.replaceWith(frag);
+    } else if(node.nodeType===1&&node.tagName!=='BR'){
+      [...node.childNodes].forEach(wrapWords);
+    }
+  }
+  [...el.childNodes].forEach(wrapWords);
+  const cObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting)return;
+      cObs.unobserve(e.target);
+      e.target.querySelectorAll('.word-reveal').forEach((w,i)=>{
+        setTimeout(()=>w.classList.add('in'),i*75);
+      });
+    });
+  },{threshold:.2});
+  cObs.observe(el);
+})();
 </script>
 </body>
 </html>
